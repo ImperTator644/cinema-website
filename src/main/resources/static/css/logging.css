@@ -1,0 +1,65 @@
+body{
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    font-family: -apple-system,BlinkMacSystemFont,"Segoe UI","Roboto","Oxygen","Ubuntu","Fira Sans","Droid Sans","Helvetica Neue",sans-serif;
+    background-color: rgb(48, 44, 44);
+}
+
+.main-header{
+    text-align: center;
+    padding: 40px 0px;
+    color: rgb(237, 255, 122);
+}
+
+.header-logo{
+    width: 237.5px;
+}
+
+.main-section{
+    background-color: rgb(191,181,175);
+    display: flex;
+    flex-direction: column;
+    margin: 0px auto 24px;
+    padding: 10px 16px 20px;
+    width: 400px;
+    box-shadow: rgb(191,181,175) 0px 0px 15px;
+    text-align: center;
+    border-radius: 5px;
+}
+
+.main-section-header{
+    color: rgb(48,44,44);
+    font-weight: bold;
+    font-size:  20px;
+    text-align: center;
+    margin-top: 0px;
+}
+
+.logging-form{
+    margin: 0px;
+    padding: 0px;
+    display: block;
+}
+
+.login{
+    padding: 8px 6px;
+    font-size: inherit;
+    width: 90%;
+    box-sizing: border-box;
+    border-radius: 3px;
+    border-width: 0px;
+}
+
+.login-input{
+    margin-bottom: 24px;
+}
+
+.login-submit{
+    cursor: pointer;
+    background-color: rgba(178,58,72);
+    border-radius: 3px;
+    border-width: 0px;
+    color: rgb(255,255,255);
+    margin-bottom: 10px;
+}
