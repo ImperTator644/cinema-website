@@ -18,7 +18,7 @@ class ClientRepositoryTest {
     @Test
     public void shouldReturnCorrectClient(){
         assertEquals(clientRepository.getClientByEmail("lukasz.blicharz@student.pk.edu.pl").getId(), 6);
-        assertEquals(clientRepository.getClientByEmail("kopytko@siema.pl").getId(), 11);
+        assertEquals(clientRepository.getClientByEmail("konrad.kczynski@student.pk.edu.pl").getId(), 7);
     }
 
     @Test
