@@ -15,7 +15,7 @@ import java.sql.Time;
 @Getter
 @Setter
 @NoArgsConstructor
-@Table(name = "iShow")
+@Table(name = "i_show")
 public class IShow {
     @Column(name = "id_ishow")
     @Id

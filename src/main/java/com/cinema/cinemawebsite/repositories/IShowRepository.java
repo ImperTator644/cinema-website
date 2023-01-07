@@ -19,7 +19,7 @@ public interface IShowRepository extends JpaRepository<IShow, Integer> {
                   Time show_time,
                   double price);
 
-    @Query( value = "SELECT * FROM iShow s " +
+    @Query( value = "SELECT * FROM i_show s " +
             "WHERE s.id_cinema = (SELECT c.id_cinema FROM cinema c NATURAL JOIN location l WHERE l.street=?1 AND l.city=?2) " +
             "AND s.room_number = ?3 " +
             "AND s.show_date = ?4 " +
@@ -30,7 +30,7 @@ public interface IShowRepository extends JpaRepository<IShow, Integer> {
                                        Date show_date,
                                        Time show_time);
 
-    @Query( value = "SELECT * FROM iShow s " +
+    @Query( value = "SELECT * FROM i_show s " +
             "WHERE s.id_cinema = (SELECT c.id_cinema FROM cinema c NATURAL JOIN location l WHERE l.street=?1 AND l.city=?2)", nativeQuery = true)
     List<IShow> getiShowsFromCinema(String street,
                                        String city);

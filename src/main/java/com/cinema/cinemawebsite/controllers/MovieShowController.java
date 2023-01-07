@@ -13,7 +13,7 @@ public class MovieShowController {
     @Autowired
     private MovieShowService movieShowService;
 
-    @PostMapping(path = "addMovieShow")
+    @PostMapping(path = "movieShow")
     public void addMovieShow(@RequestParam(TITLE) String title,
                              @RequestParam(SOUNDTRACK) String soundtrack)
     {

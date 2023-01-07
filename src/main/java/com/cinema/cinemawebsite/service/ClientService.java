@@ -1,5 +1,6 @@
 package com.cinema.cinemawebsite.service;
 
+import com.cinema.cinemawebsite.model.dto.ClientDto;
 import com.cinema.cinemawebsite.entities.Client;
 import com.cinema.cinemawebsite.repositories.ClientRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,18 +12,12 @@ import java.sql.Date;
 public class ClientService {
     @Autowired
     private ClientRepository clientRepository;
-    public boolean addClient(String name,
-                          String surname,
-                          String phoneNumber,
-                          String email,
-                          String dateOfBirth,
-                          String password)
-    {
-        Date date = Date.valueOf(dateOfBirth);
-        if(clientRepository.getClientByEmail(email) != null){
+    public boolean addClient(ClientDto clientDto) {
+        Date date = Date.valueOf(clientDto.getDateOfBirth());
+        if(clientRepository.getClientByEmail(clientDto.getEmail()) != null){
             return false;
         }
-        clientRepository.addClient(name, surname, phoneNumber, email, date, password);
+        clientRepository.addClient(clientDto.getName(), clientDto.getSurname(), clientDto.getPhoneNumber(), clientDto.getEmail(), date, clientDto.getPassword());
         return true;
     }
     public Iterable<Client> getClients(){

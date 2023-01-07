@@ -8,7 +8,8 @@ public enum MovieCategory {
     KOMEDIA("KOMEDIA"),
     KRYMINAL("KRYMINAŁ"),
     DRAMAT("DRAMAT"),
-    SCIENCE_FICTION("SCIENCE-FICTION");
+    SCIENCE_FICTION("SCIENCE-FICTION"),
+    NO_CATEGORY("NO-CATEGORY");
 
     public final String category;
     MovieCategory(String category) {

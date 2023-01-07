@@ -10,8 +10,7 @@ import java.util.Objects;
 @NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode
-public class TicketId implements Serializable {
-    private int idClient;
-    private int idiShow;
+public class ReservedId implements Serializable {
     private int idSeat;
+    private int idiShow;
 }
