@@ -56,7 +56,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                         request
                                 .antMatchers("/", "/register/**").permitAll()
                                 .anyRequest().authenticated()
-                                //.antMatchers("/adminPanel").hasRole("ADMIN")
                 )
                 .formLogin(
                         form -> form

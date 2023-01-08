@@ -4,16 +4,14 @@ import com.cinema.cinemawebsite.entities.Client;
 import com.cinema.cinemawebsite.service.ClientService;
 import lombok.Setter;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Bean;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 import java.util.Collection;
 
 @Service
-public class CustomUserDetails implements UserDetails {
+public class CustomUserDetails implements UserDetails{
 
     @Autowired
     private ClientService clientService;

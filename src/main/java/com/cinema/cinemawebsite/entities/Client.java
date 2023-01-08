@@ -22,5 +22,4 @@ public class Client {
 
     @Column(name = "email")
     private String email;
-
 }

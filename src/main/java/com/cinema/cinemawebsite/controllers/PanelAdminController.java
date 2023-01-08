@@ -2,6 +2,7 @@ package com.cinema.cinemawebsite.controllers;
 
 import com.cinema.cinemawebsite.entities.Client;
 import com.cinema.cinemawebsite.entities.Movie;
+import com.cinema.cinemawebsite.model.CustomUserDetails;
 import com.cinema.cinemawebsite.model.DeleteClientModel;
 import com.cinema.cinemawebsite.model.dto.IShowDto;
 import com.cinema.cinemawebsite.model.dto.ShowDto;
@@ -10,6 +11,7 @@ import com.cinema.cinemawebsite.service.IShowService;
 import com.cinema.cinemawebsite.service.MovieService;
 import com.cinema.cinemawebsite.service.MovieShowService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -20,6 +22,7 @@ import javax.validation.Valid;
 @Controller
 @RequestMapping(path = "adminPanel")
 public class PanelAdminController {
+    private static String ADMIN = "admin@admin";
     @Autowired
     private ClientService clientService;
 
@@ -33,8 +36,11 @@ public class PanelAdminController {
     private IShowService iShowService;
 
     @GetMapping(path="")
-    public String openAdminPanel(){
-        return "admin/admin-panel";
+    public String openAdminPanel(@AuthenticationPrincipal CustomUserDetails customUserDetails){
+        if(ADMIN.equals(customUserDetails.getUsername())){
+            return "admin/admin-panel";
+        }
+        return "access-denied";
     }
 
     @GetMapping("deleteClient")
