@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Logging</title>
+    <meta charset="UTF-8"/>
+</head>
+<body>
+<div>
+    <header class="main-header">
+        <div class="main-header-label">
+            <h1>LUKRAD CINEMA</h1>
+        </div>
+    </header>
+    <section role="main" class="main-section">
+        <div class="main-section-header">
+            <h5>Zaloguj się na swoje konto</h5>
+        </div>
+
+        <div th:if="${isOK == true}">
+            <p>DODANO UZYTKOWNIKA === <span th:text="${addedEmail}">email</span> === GRATKI</p>
+        </div>
+
+        <div class="logging-form">
+            <form class="logging-field">
+                <input name="username" id="username" class="login login-input" type="email" placeholder="Wpisz adres e-mail">
+                <input name="password" id="password" class="login login-input" type="password" placeholder="Wpisz hasło">
+                <button id="login-submit" class="login login-submit" type="submit">
+                            <span class="login-submit-text">
+                                <span>Zaloguj</span>
+                            </span>
+                </button>
+            </form>
+            <a th:href="@{/client/register}"><button>Register</button></a>
+            <a th:href="@{/client/delete}"><button>Delete</button></a>
+        </div>
+    </section>
+</div>
+</body>
+</html>

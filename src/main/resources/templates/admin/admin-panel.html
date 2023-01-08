@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin panel</title>
+</head>
+<body>
+<div>
+    <header class="main-header">
+        <div class="main-header-label">
+            <h1>ADMIN PANEL</h1>
+        </div>
+    </header>
+
+        <div th:if="${isDeleted == true}">
+            <p>USUNIETO UŻYTKOWNIKA === <span th:text="${deletedEmail}">email</span> === GRATKI</p>
+        </div>
+
+        <div class="logging-form">
+            <a th:href="@{/adminPanel/deleteClient}"><button>Usun konto</button></a>
+            <a th:href="@{/adminPanel/addMovie}"><button>DODAJ FILM</button></a>
+            <a th:href="@{/adminPanel/addMovieShow}"><button>DODAJ SEANS</button></a>
+            <a th:href="@{/adminPanel/addIShow}"><button>DODAJ PROJEKCJĘ</button></a>
+        </div>
+</div>
+</body>
+</html>

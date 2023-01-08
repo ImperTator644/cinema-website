@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8" />
+  <title>Register client</title>
+</head>
+<body>
+<div>
+  <header class="main-header">
+    <div class="main-header-label">
+      <h1>REJESTRACJA</h1>
+    </div>
+  </header>
+    <div class="register-form">
+      <form class="register-field" th:action="@{/adminPanel/deleteClient}" th:object="${deleteClientModel}" th:method="delete">
+        <input th:value="*{email}" name="email" id="email" type="text" placeholder="Wpisz email">
+        <button id="register-submit" class="register register-submit" type="submit">
+                            <span class="register-submit-text">
+                                <span>WYPIERDALAJ</span>
+                            </span>
+        </button>
+        <input type="reset" value="RESET">
+      </form>
+    </div>
+    <div>
+        <a th:href="@{/admin/adminPanel}"><button>POWRÓT DO PANELU</button></a>
+    </div>
+
+    <div>
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>E-mail</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="client: ${clientsList}">
+                    <td th:text="${client.getId()}">User ID</td>
+                    <td th:text="${client.getEmail()}">E-mail</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+</div>
+</body>
+</html>
