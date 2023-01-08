@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Wybierz seans</title>
+    <link th:href="@{/css/accordion.css}" rel="stylesheet" />
+</head>
+<body>
+<h1>Wybierz kino</h1>
+<div>
+
+    <span th:each="cinema: ${listCinemas}">
+        <button class="accordion"><span th:text="${cinemaService.getLocationFullNameByCinemaId(cinema.getIdCinema())}" /></button>
+        <div class="panel">
+            <h3>Wybierz seans</h3>
+            <span th:each="iShow: ${iShowsFromCinema.getIShowsFromCinemaLocationId(cinema.idLocation)}">
+                <a th:href="@{/movie/(id=*{iShow.getIdiShow()})}">
+                    <div class="one-ishow" th:with="movie = ${movieShowService.getMovieFromShow(iShow.getIdShow())}">
+                        <p>Tytuł filmu: <span th:text="*{movie.getTitle()}">title</span></p>
+                        <p>Godzina seansu: <span th:text="*{iShow.getShowDate()}">show_date</span></p>
+                        <p>Długość filmu:<span th:text="*{iShow.getShowTime()}">show time</span></p>
+                        <p>Kategoria filmu: <span th:text="*{movie.getMovieCategory()}">movie_category</span></p>
+                        <p>Kategoria wiekowa: min. <span th:text="*{movie.getAgeCategory()}">age_category</span></p>
+                        <p>Opis filmu: <span th:text="*{movie.getMovieDescription()}">title</span></p>
+                    </div>
+                </a>
+            </span>
+        </div>
+    </span>
+
+</div>
+
+<script
+        type="text/javascript" th:src="@{/js/accordion.js}">
+</script>
+</body>
+</html>

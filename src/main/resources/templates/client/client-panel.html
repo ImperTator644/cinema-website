@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en"
-      xmlns:th="https://www.thymeleaf.org"
-      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
+      xmlns:th="https://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Client panel</title>
@@ -20,6 +19,6 @@
         <input type="submit" value="Sign Out"/>
     </form>
 </div>
-
+    <a th:href="@{/chooseIShow}"><button>REZERWUJ BILET</button></a>
 </body>
 </html>
