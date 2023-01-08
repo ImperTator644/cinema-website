@@ -18,21 +18,19 @@ public class RegisterController {
     @Autowired
     private ClientService clientService;
 
-    @PostMapping(path = "add")
+    @PostMapping(path = "")
     public ModelAndView addClient(@Valid ClientDto clientDto){
         if(clientService.addClient(clientDto)){
             ModelAndView mav = new ModelAndView("redirect:/");
-            mav.addObject("isOK", Boolean.TRUE);
             mav.addObject("addedEmail", clientDto.getEmail());
             return mav;
         }
         return new ModelAndView("redirect:/client/register");
     }
 
-    @GetMapping("add")
+    @GetMapping("")
     public String getRegisterPage(Model model) {
         model.addAttribute("clientDto", new ClientDto());
-        model.addAttribute("isOK", Boolean.FALSE);
         return "client/register";
     }
 }
