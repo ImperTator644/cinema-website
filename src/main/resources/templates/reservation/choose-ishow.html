@@ -8,13 +8,25 @@
     <link th:href="@{/css/accordion.css}" rel="stylesheet" />
 </head>
 <body>
-<h1>Wybierz seans</h1>
+<h1>Wybierz kino</h1>
 <div>
 
     <span th:each="cinema: ${listCinemas}">
-        <button class="accordion"><span th:text="${cinema.getIdLocation()}" /></button>
+        <button class="accordion"><span th:text="${cinemaService.getLocationFullNameByCinemaId(cinema.getIdCinema())}" /></button>
         <div class="panel">
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+            <h3>Wybierz seans</h3>
+            <span th:each="iShow: ${iShowsFromCinema.getIShowsFromCinemaLocationId(cinema.idLocation)}">
+                <a th:href="@{/movie/(id=*{iShow.getIdiShow()})}">
+                    <div class="one-ishow" th:with="movie = ${movieShowService.getMovieFromShow(iShow.getIdShow())}">
+                        <p>Tytuł filmu: <span th:text="*{movie.getTitle()}">title</span></p>
+                        <p>Godzina seansu: <span th:text="*{iShow.getShowDate()}">show_date</span></p>
+                        <p>Długość filmu:<span th:text="*{iShow.getShowTime()}">show time</span></p>
+                        <p>Kategoria filmu: <span th:text="*{movie.getMovieCategory()}">movie_category</span></p>
+                        <p>Kategoria wiekowa: min. <span th:text="*{movie.getAgeCategory()}">age_category</span></p>
+                        <p>Opis filmu: <span th:text="*{movie.getMovieDescription()}">title</span></p>
+                    </div>
+                </a>
+            </span>
         </div>
     </span>
 

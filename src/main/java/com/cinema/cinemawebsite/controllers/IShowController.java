@@ -46,6 +46,9 @@ public class IShowController {
     public ModelAndView openChooseIShowPage(){
         ModelAndView mav = new ModelAndView("reservation/choose-ishow");
         mav.addObject("listCinemas", cinemaService.getAllCinemas());
+        mav.addObject("cinemaService", cinemaService);
+        mav.addObject("iShowsFromCinema", iShowService);
+        mav.addObject("movieShowService", movieShowService);
         return mav;
     }
 }
