@@ -1,5 +1,6 @@
 package com.cinema.cinemawebsite.controllers;
 
+import com.cinema.cinemawebsite.model.dto.ShowDto;
 import com.cinema.cinemawebsite.service.MovieShowService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -17,6 +18,6 @@ public class MovieShowController {
     public void addMovieShow(@RequestParam(TITLE) String title,
                              @RequestParam(SOUNDTRACK) String soundtrack)
     {
-        movieShowService.addMovieShow(title, soundtrack);
+        //movieShowService.addMovieShow();
     }
 }

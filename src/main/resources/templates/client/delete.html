@@ -1,44 +1,55 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
 <head>
   <meta charset="UTF-8" />
+    <link rel="stylesheet" th:href="@{/css/admin/delete.css}" />
   <title>Register client</title>
 </head>
 <body>
 <div>
-  <header class="main-header">
-    <div class="main-header-label">
-      <h1>REJESTRACJA</h1>
-    </div>
-  </header>
+    <header class="main-header">
+        <div class="main-header-label">
+            <h1>Usuń użytkownika</h1>
+        </div>
+    </header>
+
+
     <div class="register-form">
-      <form class="register-field" th:action="@{/adminPanel/deleteClient}" th:object="${deleteClientModel}" th:method="delete">
-        <input th:value="*{email}" name="email" id="email" type="text" placeholder="Wpisz email">
-        <button id="register-submit" class="register register-submit" type="submit">
-                            <span class="register-submit-text">
-                                <span>WYPIERDALAJ</span>
-                            </span>
-        </button>
-        <input type="reset" value="RESET">
-      </form>
+        <form th:action="@{/adminPanel/deleteClient}" th:object="${deleteClientModel}" th:method="delete">
+
+            <input th:value="*{email}" class= "register-form"name="email" id="email" type="text" placeholder="Wpisz email">
+
+            <div>
+                <button id="register-submit" class="buttons" type="submit">
+                <span>
+                    <span >Usuń</span>
+                </span>
+                </button>
+
+                <input type="reset" value="Reset">
+            </div>
+        </form>
+
     </div>
-    <div>
-        <a th:href="@{/admin/adminPanel}"><button>POWRÓT DO PANELU</button></a>
+
+    <div class="back-panel">
+        <a th:href="@{/adminPanel}"><button class ="button2">POWRÓT DO PANELU</button></a>
     </div>
 
     <div>
-        <table>
+        <table class="table">
             <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>E-mail</th>
-                </tr>
+            <tr>
+                <th>ID</th>
+                <th>E-mail</th>
+            </tr>
             </thead>
             <tbody>
-                <tr th:each="client: ${clientsList}">
-                    <td th:text="${client.getId()}">User ID</td>
-                    <td th:text="${client.getEmail()}">E-mail</td>
-                </tr>
+            <tr th:each="client: ${clientsList}">
+                <td th:text="${client.getId()}">User ID</td>
+                <td th:text="${client.getEmail()}">E-mail</td>
+            </tr>
             </tbody>
         </table>
     </div>

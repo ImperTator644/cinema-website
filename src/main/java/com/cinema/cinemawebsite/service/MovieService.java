@@ -1,5 +1,6 @@
 package com.cinema.cinemawebsite.service;
 
+import com.cinema.cinemawebsite.entities.Client;
 import com.cinema.cinemawebsite.entities.Movie;
 import com.cinema.cinemawebsite.entities.enums.MovieCategory;
 import com.cinema.cinemawebsite.helpers.CategoryStringToEnumConverter;
@@ -29,5 +30,9 @@ public class MovieService {
             return;
         }
         movieRepository.addMovie(movie.getTitle(), (movie.getMovieDescription() != null ? movie.getMovieDescription() : ""), Objects.requireNonNull(movieCategory).category, movie.getAgeCategory(), movie.getLength());
+    }
+
+    public Iterable<Movie> getMovies(){
+        return movieRepository.findAll();
     }
 }
