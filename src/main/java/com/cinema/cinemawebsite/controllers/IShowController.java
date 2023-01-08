@@ -28,20 +28,6 @@ public class IShowController {
     @Autowired
     private CinemaService cinemaService;
 
-//    @PostMapping(path = "ishow")
-//    @ResponseBody
-//    public boolean addIShow(@Valid @RequestBody IShowDto iShowDto)
-//    {
-//        return iShowService.addiShow(iShowDto);
-//    }
-//
-//    @GetMapping(path = "ishow")
-//    @ResponseBody
-//    public List<IShow> listIShowsFromCinema()
-//    {
-//        return iShowService.getIShowsFromCinema(street, city);
-//    }
-
     @GetMapping(path = "")
     public ModelAndView openChooseIShowPage(){
         ModelAndView mav = new ModelAndView("reservation/choose-ishow");

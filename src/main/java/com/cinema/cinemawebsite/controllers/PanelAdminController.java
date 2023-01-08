@@ -102,6 +102,4 @@ public class PanelAdminController {
         mav.addObject("addedIShow",iShowDto.getTitle());
         return mav;
     }
-
-
 }

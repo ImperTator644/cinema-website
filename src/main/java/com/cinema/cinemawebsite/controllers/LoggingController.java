@@ -17,9 +17,4 @@ public class LoggingController {
         model.addAttribute("addedEmail", addedEmail);
         return "index";
     }
-
-//    @GetMapping(path = "login")
-//    public String openLogging(){
-//        return "redirect:/panelClient";
-//    }
 }
