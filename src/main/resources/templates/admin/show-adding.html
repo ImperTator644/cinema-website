@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8" />
+  <title>Add Show</title>
+</head>
+<body>
+<div>
+  <header>
+    <div>
+      <h1>Dodaj Seans</h1>
+    </div>
+  </header>
+  <div th:if="${addedShow != null && !addedShow.isEmpty()}">
+    <p>DODANO SEANS DLA FILMU === <span th:text="${addedShow}">movie title</span> === GRATKI</p>
+  </div>
+
+  <div>
+    <form th:action="@{/adminPanel/addShow}" th:object="${show}" th:method="post" id="movie-adding">
+      <input th:field="*{title}" name="title" id="title" type="text" placeholder="Wpisz tytuł">
+      <select th:field="*{soundtrack}" id="category">
+        <option value="Napisy">Napisy</option>
+        <option value="Dubbing">Dubbing</option>
+        <option value="Lektor_PL">Lektor PL</option>
+      </select>
+      <button type="submit">
+                            <span class="register-submit-text">
+                                <span>Dodaj Seans</span>
+                            </span>
+      </button>
+      <input type="reset" value="RESET">
+    </form>
+  </div>
+
+  <div>
+    <table>
+      <thead>
+      <tr>
+        <th>Tytuły Filmów</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr th:each="client: ${movieList}">
+        <td th:text="${client.getTitle()}">User ID</td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div>
+    <a th:href="@{/adminPanel}"><button>POWRÓT DO PANELU</button></a>
+  </div>
+
+
+</div>
+</body>
+</html>

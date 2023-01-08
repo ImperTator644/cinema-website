@@ -3,6 +3,8 @@ package com.cinema.cinemawebsite.controllers;
 import com.cinema.cinemawebsite.entities.Client;
 import com.cinema.cinemawebsite.entities.Movie;
 import com.cinema.cinemawebsite.model.DeleteClientModel;
+import com.cinema.cinemawebsite.model.dto.IShowDto;
+import com.cinema.cinemawebsite.model.dto.ShowDto;
 import com.cinema.cinemawebsite.service.ClientService;
 import com.cinema.cinemawebsite.service.IShowService;
 import com.cinema.cinemawebsite.service.MovieService;
@@ -62,4 +64,38 @@ public class PanelAdminController {
         model.addAttribute("movie", new Movie());
         return "admin/movie-adding";
     }
+
+    @GetMapping(path = "addShow")
+    public String openAddShowPage(@RequestParam(name="addedShow",required = false)String addedShow, Model model){
+        model.addAttribute("addedShow",addedShow);
+        model.addAttribute("show",new ShowDto());
+        model.addAttribute("movieList", movieService.getMovies());
+        return "admin/show-adding";
+    }
+
+    @PostMapping(path = "addShow")
+    public ModelAndView addShow(@Valid ShowDto showDto){
+        movieShowService.addMovieShow(showDto);
+        ModelAndView mav = new ModelAndView("redirect:/adminPanel/addShow");
+        mav.addObject("addedShow",showDto.getTitle());
+        return mav;
+    }
+
+    @GetMapping(path = "addIShow")
+    public String openAddIShowPage(@RequestParam(name="addedIShow",required = false)String addedIShow, Model model){
+        model.addAttribute("addedIShow",addedIShow);
+        model.addAttribute("ishow",new IShowDto());
+        model.addAttribute("movieList", movieService.getMovies());
+        return "admin/ishow-adding";
+    }
+
+    @PostMapping(path = "addIShow")
+    public ModelAndView addIShow(@Valid IShowDto iShowDto){
+        iShowService.addiShow(iShowDto);
+        ModelAndView mav = new ModelAndView("redirect:/adminPanel/addIShow");
+        mav.addObject("addedIShow",iShowDto.getTitle());
+        return mav;
+    }
+
+
 }

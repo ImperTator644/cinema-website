@@ -1,7 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" th:href="@{/css/admin/admin-panel.css}" />
     <title>Admin panel</title>
 </head>
 <body>
@@ -12,16 +15,12 @@
         </div>
     </header>
 
-        <div th:if="${isDeleted == true}">
-            <p>USUNIETO UŻYTKOWNIKA === <span th:text="${deletedEmail}">email</span> === GRATKI</p>
-        </div>
-
-        <div class="logging-form">
-            <a th:href="@{/adminPanel/deleteClient}"><button>Usun konto</button></a>
-            <a th:href="@{/adminPanel/addMovie}"><button>DODAJ FILM</button></a>
-            <a th:href="@{/adminPanel/addMovieShow}"><button>DODAJ SEANS</button></a>
-            <a th:href="@{/adminPanel/addIShow}"><button>DODAJ PROJEKCJĘ</button></a>
-        </div>
+    <div class="logging-form">
+        <a th:href="@{/adminPanel/deleteClient}"><button class ="buttonPanel">Usun konto</button></a>
+        <a th:href="@{/adminPanel/addMovie}"><button class ="buttonPanel">Dodaj Film</button></a>
+        <a th:href="@{/adminPanel/addShow}"><button class ="buttonPanel">Dodaj Seans</button></a>
+        <a th:href="@{/adminPanel/addIShow}"><button class ="buttonPanel">Dodaj Projekcję</button></a>
+    </div>
 </div>
 </body>
 </html>

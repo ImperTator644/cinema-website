@@ -6,6 +6,8 @@ import lombok.Setter;
 
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
+import java.sql.Date;
+import java.sql.Time;
 
 @Getter
 @Setter
@@ -15,6 +17,10 @@ public class IShowDto {
     @NotNull(message = "Title is null")
     @NotBlank(message = "Title is blank")
     private String title;
+
+    @NotNull(message = "Soundtrack is null")
+    @NotBlank(message = "Soundtrack is blank")
+    private String soundtrack;
 
     @NotNull(message = "Room number is null")
     private Integer roomNumber;
@@ -28,11 +34,9 @@ public class IShowDto {
     private String street;
 
     @NotNull(message = "Show date is null")
-    @NotBlank(message = "Show date is blank")
-    private String showDate;
+    private Date showDate;
 
     @NotNull(message = "Show time is null")
-    @NotBlank(message = "Show time is blank")
     private String showTime;
 
     @NotNull(message = "Price is null")

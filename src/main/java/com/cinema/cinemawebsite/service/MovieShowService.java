@@ -1,7 +1,10 @@
 package com.cinema.cinemawebsite.service;
 
+import com.cinema.cinemawebsite.entities.Movie;
+import com.cinema.cinemawebsite.entities.MovieShow;
 import com.cinema.cinemawebsite.entities.enums.SoundtrackType;
 import com.cinema.cinemawebsite.helpers.SoundtrackStringToEnumConverter;
+import com.cinema.cinemawebsite.model.dto.ShowDto;
 import com.cinema.cinemawebsite.repositories.MovieShowRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,15 +21,16 @@ public class MovieShowService {
     @Autowired
     private SoundtrackStringToEnumConverter soundtrackStringToEnumConverter;
 
-    public void addMovieShow(String title, String soundtrack){
+    public void addMovieShow(ShowDto showDto){
         SoundtrackType soundtrackType;
         try{
-            soundtrackType = soundtrackStringToEnumConverter.convert(soundtrack);
+            soundtrackType = soundtrackStringToEnumConverter.convert(showDto.getSoundtrack());
         }
         catch (IllegalArgumentException e){
             log.error("Couldn't convert string to soundtrack type enum {}", e.getMessage());
             return;
         }
-        movieShowRepository.addMovieShow(title, Objects.requireNonNull(soundtrackType).type);
+        movieShowRepository.addMovieShow(showDto.getTitle(), Objects.requireNonNull(soundtrackType).type);
     }
+
 }
