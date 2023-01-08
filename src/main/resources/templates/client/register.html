@@ -13,7 +13,7 @@
     </div>
   </header>
     <div>
-      <form th:action="@{/register/add}" th:object="${clientDto}" th:method="post">
+      <form th:action="@{/register}" th:object="${clientDto}" th:method="post">
         <input th:field="*{name}" name="name" id="name" type="text" placeholder="Wpisz imię">
         <input th:field="*{surname}" name="surname" id="surname" type="text" placeholder="Wpisz nazwisko">
         <input th:field="*{phoneNumber}" name="phoneNumber" id="phoneNumber" type="tel" placeholder="Podaj telefon">

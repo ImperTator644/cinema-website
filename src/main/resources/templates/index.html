@@ -1,12 +1,17 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:th="http://www.thymeleaf.org">
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
 <head>
     <title>Logging</title>
     <meta charset="UTF-8"/>
 </head>
 <body>
 <div>
+    <h1 th:inline="text">Hello <span th:remove="tag" sec:authentication="${name}">thymeleaf</span>!</h1>
+    <form th:action="@{/logout}" method="post">
+        <input type="submit" value="Sign Out"/>
+    </form>
     <header class="main-header">
         <div class="main-header-label">
             <h1>LUKRAD CINEMA</h1>
@@ -17,22 +22,29 @@
             <h5>Zaloguj się na swoje konto</h5>
         </div>
 
-        <div th:if="${isOK == true}">
+        <div th:if="${addedEmail != null && !addedEmail.isEmpty()}">
             <p>DODANO UZYTKOWNIKA === <span th:text="${addedEmail}">email</span> === GRATKI</p>
         </div>
 
+        <div th:if="${param.error}">
+            Invalid username and password.
+        </div>
+
+        <div th:if="${param.logout}">
+            You have been logged out.
+        </div>
+
         <div class="logging-form">
-            <form class="logging-field">
-                <input name="username" id="username" class="login login-input" type="email" placeholder="Wpisz adres e-mail">
-                <input name="password" id="password" class="login login-input" type="password" placeholder="Wpisz hasło">
-                <button id="login-submit" class="login login-submit" type="submit">
+            <form th:action="@{/login}" method="post">
+                <input name="email" id="email"type="email" placeholder="Wpisz adres e-mail">
+                <input name="password" id="password"type="password" placeholder="Wpisz hasło">
+                <button id="login-submit"type="submit">
                             <span class="login-submit-text">
                                 <span>Zaloguj</span>
                             </span>
                 </button>
             </form>
-            <a th:href="@{/client/register}"><button>Register</button></a>
-            <a th:href="@{/client/delete}"><button>Delete</button></a>
+            <a th:href="@{/register}"><button>Register</button></a>
         </div>
     </section>
 </div>
