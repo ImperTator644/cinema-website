@@ -5,15 +5,21 @@
 <head>
     <meta charset="UTF-8">
     <title>Client panel</title>
+    <link rel="stylesheet" th:href ="@{/css/client/client-panel.css}" />
 </head>
 <body>
-    <p>Witaj === <span th:text="${login}">email</span></p>
-    <div th:if="${login != null && login.equals('admin@admin')}">
-        <a th:href="@{/adminPanel}"><button>ADMIN PANEL</button></a>
+<header>
+    <div class="main-header">
+        <p>Witaj <span th:text="${login}">email</span></p>
     </div>
+</header>
+
+<div th:if="${login != null && login.equals('admin@admin')}" class="client-panel">
+    <a th:href="@{/adminPanel}"><button class="buttons">ADMIN PANEL</button></a>
     <form th:action="@{/logout}" method="post">
         <input type="submit" value="Sign Out"/>
     </form>
-</body>
+</div>
+
 </body>
 </html>

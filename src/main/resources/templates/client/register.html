@@ -1,8 +1,10 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:th="http://www.thymeleaf.org">
+
 <head>
   <meta charset="UTF-8" />
+  <link rel="stylesheet" th:href ="@{/css/client/register.css}" />
   <title>Register client</title>
 </head>
 <body>
@@ -12,26 +14,47 @@
       <h1>REJESTRACJA</h1>
     </div>
   </header>
+  <section role="main" class="main-section">
     <div>
-      <form th:action="@{/register}" th:object="${clientDto}" th:method="post">
-        <input th:field="*{name}" name="name" id="name" type="text" placeholder="Wpisz imię">
-        <input th:field="*{surname}" name="surname" id="surname" type="text" placeholder="Wpisz nazwisko">
-        <input th:field="*{phoneNumber}" name="phoneNumber" id="phoneNumber" type="tel" placeholder="Podaj telefon">
-        <input th:field="*{email}" name="email" id="email" type="email" placeholder="Wpisz adres e-mail">
-        <input th:field="*{dateOfBirth}" name="dateOfBirth" id="dateOfBirth" type="date" placeholder="Podaj datę urodzenia">
-        <input th:field="*{password}" name="password" id="password" type="password" placeholder="Podaj hasło">
-        <button id="register-submit" class="register register-submit" type="submit">
+      <form th:action="@{/register}" th:object="${clientDto}" th:method="post" class="register-form">
+        <div>
+          <input th:field="*{name}" name="name" id="name" type="text" placeholder="Wpisz imię">
+        </div>
+
+        <div>
+          <input th:field="*{surname}" name="surname" id="surname" type="text" placeholder="Wpisz nazwisko">
+        </div>
+
+        <div>
+          <input th:field="*{phoneNumber}" name="phoneNumber" id="phoneNumber" type="tel" placeholder="Podaj telefon">
+        </div>
+        <div>
+          <input th:field="*{email}" name="email" id="email" type="email" placeholder="Wpisz adres e-mail">
+        </div>
+        <div>
+          <input th:field="*{dateOfBirth}" name="dateOfBirth" id="dateOfBirth" type="date" placeholder="Podaj datę urodzenia">
+        </div>
+        <div>
+          <input th:field="*{password}" name="password" id="password" type="password" placeholder="Podaj hasło">
+        </div>
+        <div>
+          <button id="register-submit" class="buttons" type="submit">
                             <span class="register-submit-text">
-                                <span>ZAREJESTRUJ SIĘ</span>
+                                <span>Zarejestruj się</span>
                             </span>
-        </button>
-        <input type="reset" value="RESET">
+          </button>
+          <input type="reset" value="Reset">
+        </div>
       </form>
     </div>
 
-    <div>
-      <a th:href="@{/}"><button>POWRÓT DO LOGOWANIA</button></a>
+
+    <div class="register-form">
+      <div>
+        <a th:href="@{/}"><button class="buttons2">Powrót do logowania</button></a>
+      </div>
     </div>
+  </section>
 
 </div>
 </body>
