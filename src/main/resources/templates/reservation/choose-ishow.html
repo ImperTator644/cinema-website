@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Wybierz seans</title>
+    <link th:href="@{/css/accordion.css}" rel="stylesheet" />
+</head>
+<body>
+<h1>Wybierz seans</h1>
+<div>
+
+    <span th:each="cinema: ${listCinemas}">
+        <button class="accordion"><span th:text="${cinema.getIdLocation()}" /></button>
+        <div class="panel">
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+        </div>
+    </span>
+
+</div>
+
+<script
+        type="text/javascript" th:src="@{/js/accordion.js}">
+</script>
+</body>
+</html>

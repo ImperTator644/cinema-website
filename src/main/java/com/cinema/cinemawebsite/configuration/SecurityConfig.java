@@ -53,9 +53,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     public void configure(HttpSecurity http) throws Exception {
         http.csrf().disable()
                 .authorizeHttpRequests((request) ->
-                        request
-                                .antMatchers("/", "/register/**").permitAll()
-                                .anyRequest().authenticated()
+//                        request
+//                                .antMatchers("/", "/register/**").permitAll()
+//                                .anyRequest().authenticated()
+                        request.anyRequest().permitAll()
                 )
                 .formLogin(
                         form -> form
