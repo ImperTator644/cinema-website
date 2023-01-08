@@ -19,6 +19,7 @@ import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
+import javax.imageio.plugins.jpeg.JPEGImageReadParam;
 import javax.sql.DataSource;
 
 @Configuration
@@ -57,6 +58,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 //                                .antMatchers("/", "/register/**").permitAll()
 //                                .anyRequest().authenticated()
                         request.anyRequest().permitAll()
+                                request.anyRequest().permitAll()
                 )
                 .formLogin(
                         form -> form
