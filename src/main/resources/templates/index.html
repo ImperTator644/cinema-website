@@ -4,46 +4,62 @@
 <head>
     <title>Logging</title>
     <meta charset="UTF-8"/>
+    <link rel="stylesheet" th:href ="@{/css/logging.css}" />
 </head>
 <body>
 <div>
-    <form th:action="@{/logout}" method="post">
-        <input type="submit" value="Sign Out"/>
-    </form>
+    <div class="sign-out-button">
+        <form th:action="@{/logout}" method="post" >
+            <div class="sign-out-button">
+                <input type="submit" value="Sign Out"/>
+            </div>
+        </form>
+    </div>
+
     <header class="main-header">
         <div class="main-header-label">
             <h1>LUKRAD CINEMA</h1>
         </div>
     </header>
+
     <section role="main" class="main-section">
         <div class="main-section-header">
             <h5>Zaloguj się na swoje konto</h5>
         </div>
 
-        <div th:if="${addedEmail != null && !addedEmail.isEmpty()}">
-            <p>DODANO UZYTKOWNIKA === <span th:text="${addedEmail}">email</span> === GRATKI</p>
-        </div>
+        <div class="main-section-if">
+            <div  th:if="${addedEmail != null && !addedEmail.isEmpty()}">
+                <p>DODANO UŻYTKOWNIKA === <span th:text="${addedEmail}">email</span> === GRATKI</p>
+            </div>
 
-        <div th:if="${param.error}">
-            Invalid username and password.
-        </div>
+            <div th:if="${param.error}">
+                Invalid username and password.
+            </div>
 
-        <div th:if="${param.logout}">
-            You have been logged out.
+            <div th:if="${param.logout}">
+                You have been logged out.
+            </div>
         </div>
 
         <div class="logging-form">
             <form th:action="@{/login}" method="post">
-                <input name="email" id="email"type="email" placeholder="Wpisz adres e-mail">
-                <input name="password" id="password"type="password" placeholder="Wpisz hasło">
-                <button id="login-submit"type="submit">
-                            <span class="login-submit-text">
-                                <span>Zaloguj</span>
-                            </span>
-                </button>
+                <div>
+                    <input name="email" id="email"type="email" placeholder="Wpisz adres e-mail">
+                </div>
+                <div>
+                    <input name="password" id="password"type="password" placeholder="Wpisz hasło">
+                </div>
+                <div>
+                    <button class="buttons"type="submit">
+                                <span>
+                                    <span>Zaloguj</span>
+                                </span>
+                    </button>
+                </div>
             </form>
-            <a th:href="@{/register}"><button>Register</button></a>
+            <a th:href="@{/register}"><button class="buttons">Register</button></a>
         </div>
+
     </section>
 </div>
 </body>

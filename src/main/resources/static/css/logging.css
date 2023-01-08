@@ -8,12 +8,10 @@ body{
 
 .main-header{
     text-align: center;
-    padding: 40px 0px;
-    color: rgb(237, 255, 122);
-}
-
-.header-logo{
-    width: 237.5px;
+    font-size: larger;
+    padding: 20px 0px;
+    color: rgb(211, 232, 71);
+    text-shadow: rgb(211, 232, 71) 0px 0px 5px
 }
 
 .main-section{
@@ -22,7 +20,7 @@ body{
     flex-direction: column;
     margin: 0px auto 24px;
     padding: 10px 16px 20px;
-    width: 400px;
+    width: 55%;
     box-shadow: rgb(191,181,175) 0px 0px 15px;
     text-align: center;
     border-radius: 5px;
@@ -31,35 +29,74 @@ body{
 .main-section-header{
     color: rgb(48,44,44);
     font-weight: bold;
-    font-size:  20px;
+    font-size:  25px;
     text-align: center;
     margin-top: 0px;
 }
 
-.logging-form{
-    margin: 0px;
-    padding: 0px;
-    display: block;
+.main-section-if{
+    color: rgb(48,44,44);
+    font-weight: bold;
+    font-size:  15px;
+    text-align: center;
 }
 
-.login{
+
+.logging-form{
     padding: 8px 6px;
     font-size: inherit;
-    width: 90%;
+    text-align: center;
     box-sizing: border-box;
     border-radius: 3px;
     border-width: 0px;
 }
 
-.login-input{
-    margin-bottom: 24px;
+input[type=email],input[type = password], select {
+    width: 60%;
+    text-align: center;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
 }
 
-.login-submit{
-    cursor: pointer;
-    background-color: rgba(178,58,72);
-    border-radius: 3px;
-    border-width: 0px;
-    color: rgb(255,255,255);
-    margin-bottom: 10px;
+
+.buttons {
+    border:none;
+    width: 40%;
+    padding: 12px 20px;
+    margin: 10px;
+    color: rgb(48, 44, 44);
+    padding: 15px 32px;
+    text-align: center;
+    font-size: 16px;
+
+    border-radius: 8px;
+
+}
+
+.buttons:hover{
+    transform: scale(0.98);
+    opacity: 0.8;
+}
+
+
+
+.sign-out-button{
+    text-align: right;
+}
+
+input[type = submit]{
+    border:none;
+    width: 10%;
+    color: rgb(48, 44, 44);
+    background-color: rgb(191, 181, 175);
+    box-shadow: rgb(191,181,175) 0px 0px 15px;
+    padding: 10px;
+    text-align: center;
+    font-size: 16px;
+    border-radius: 8px;
+
 }

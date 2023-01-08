@@ -19,6 +19,7 @@ import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
+import javax.imageio.plugins.jpeg.JPEGImageReadParam;
 import javax.sql.DataSource;
 
 @Configuration
@@ -53,9 +54,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     public void configure(HttpSecurity http) throws Exception {
         http.csrf().disable()
                 .authorizeHttpRequests((request) ->
-                        request
-                                .antMatchers("/", "/register/**").permitAll()
-                                .anyRequest().authenticated()
+//                        request
+//                                .antMatchers("/", "/register/**").permitAll()
+//                                .anyRequest().authenticated()
+                                request.anyRequest().permitAll()
                 )
                 .formLogin(
                         form -> form
