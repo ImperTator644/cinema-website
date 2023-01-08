@@ -61,7 +61,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 )
                 .formLogin(
                         form -> form
-                                .loginPage("/index")
+                                .loginPage("/")
                                 .loginProcessingUrl("/login")
                                 .usernameParameter("email")
                                 .defaultSuccessUrl("/panelClient")
