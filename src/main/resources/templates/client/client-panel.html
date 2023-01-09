@@ -7,6 +7,12 @@
     <link rel="stylesheet" th:href ="@{/css/client/client-panel.css}" />
 </head>
 <body>
+<div class="sign-out-button">
+    <form th:action="@{/logout}" method="post" >
+        <input type="submit" value="Sign Out"/>
+    </form>
+</div>
+
 <header>
     <div class="main-header">
         <p>Witaj <span th:text="${login}">email</span></p>
@@ -16,12 +22,10 @@
 <div th:if="${login != null && login.equals('admin@admin')}" class="client-panel">
     <a th:href="@{/adminPanel}"><button class="buttons">ADMIN PANEL</button></a>
 </div>
+
 <div class="client-panel">
-    <form th:action="@{/logout}" method="post">
-        <input type="submit" value="Sign Out"/>
-    </form>
+    <a th:href="@{/chooseIShow}"><button class="buttons2">Rezerwuj Bilet</button></a>
+    <a th:href="@{/client/delete/}"><button class="buttons2">Usuń swoje konto</button></a>
 </div>
-    <a th:href="@{/chooseIShow}"><button>REZERWUJ BILET</button></a>
-    <a th:href="@{/client/delete/}"><button>USUN SWOJE KONTO</button></a>
 </body>
 </html>
