@@ -14,6 +14,7 @@ import org.springframework.stereotype.Service;
 
 import java.sql.Time;
 import java.util.List;
+import java.util.Objects;
 
 @Service
 @Slf4j
@@ -38,8 +39,7 @@ public class IShowService {
             log.error("Couldn't convert string to soundtrack type enum {}", e.getMessage());
             return false;
         }
-
-        iShowRepository.addiShow(iShowDto.getTitle(), iShowDto.getRoomNumber(), iShowDto.getCity(), iShowDto.getStreet(), iShowDto.getShowDate(), time, Precision.round(iShowDto.getPrice(), 2), iShowDto.getSoundtrack());
+        iShowRepository.addiShow(iShowDto.getTitle(), iShowDto.getRoomNumber(), iShowDto.getCity(), iShowDto.getStreet(), iShowDto.getShowDate(), time, Precision.round(iShowDto.getPrice(), 2), Objects.requireNonNull(soundtrackType).type);
         return true;
     }
 
