@@ -8,7 +8,7 @@
 </head>
 <body>
 <header>
-    <div class="main-header">
+    <div th:if="${login}" class="main-header">
         <p>Witaj <span th:text="${login}">email</span></p>
     </div>
 </header>
