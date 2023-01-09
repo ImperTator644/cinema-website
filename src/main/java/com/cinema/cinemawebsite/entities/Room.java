@@ -1,7 +1,6 @@
 package com.cinema.cinemawebsite.entities;
 
 import com.cinema.cinemawebsite.entities.compositeKey.RoomId;
-import com.cinema.cinemawebsite.entities.compositeKey.TicketId;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;

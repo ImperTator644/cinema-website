@@ -1,6 +1,5 @@
 package com.cinema.cinemawebsite.entities;
 
-import com.cinema.cinemawebsite.entities.enums.SoundtrackType;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;

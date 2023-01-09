@@ -1,10 +1,7 @@
 package com.cinema.cinemawebsite.controllers;
 
 import com.cinema.cinemawebsite.model.CustomUserDetails;
-import com.cinema.cinemawebsite.model.dto.ReservationInformationDto;
-import com.cinema.cinemawebsite.model.dto.TicketDto;
 import com.cinema.cinemawebsite.model.dto.TicketMap;
-import com.cinema.cinemawebsite.service.CinemaService;
 import com.cinema.cinemawebsite.service.ClientService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
