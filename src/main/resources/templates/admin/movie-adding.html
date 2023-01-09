@@ -3,50 +3,73 @@
       xmlns:th="http://www.thymeleaf.org">
 <head>
   <meta charset="UTF-8" />
+  <link rel="stylesheet" th:href ="@{/css/admin/movie-adding.css}" />
   <title>Add movie</title>
 </head>
 <body>
 <div>
-  <header>
+  <header class="main-header">
     <div>
       <h1>DODAJ FILM</h1>
     </div>
   </header>
 
-  <div th:if="${addedMovie != null && !addedMovie.isEmpty()}">
-    <p>DODANO FILM === <span th:text="${addedMovie}">movie title</span> === GRATKI</p>
-  </div>
+  <section role="main" class="main-section">
+    <div th:if="${addedMovie != null && !addedMovie.isEmpty()}" id="response">
+      <p>Dodano film <span th:text="${addedMovie}">movie title</span></p>
+    </div>
 
-  <div>
-    <form th:action="@{/adminPanel/addMovie}" th:object="${movie}" th:method="post" id="movie-adding">
-      <input th:field="*{title}" name="title" id="title" type="text" placeholder="Wpisz tytuł">
-      <select th:field="*{movieCategory}" id="category">
-        <option value="Akcja">Akcja</option>
-        <option value="Przygoda">Przygoda</option>
-        <option value="Dokument">Dokument</option>
-        <option value="Horror">Horror</option>
-        <option value="Komedia">Komedia</option>
-        <option value="Kryminał">Kryminał</option>
-        <option value="Dramat">Dramat</option>
-        <option value="Science_Fiction">Science-Fiction</option>
-        <option value="No_category">No-category</option>
-      </select>
-      <input th:field="*{ageCategory}" name="age" id="age" type="number" step="0.01" placeholder="Podaj kategorię wiekową">
-      <input th:field="*{length}" name="length" id="length" type="number" placeholder="Podaj dlugość filmu">
-      <button type="submit">
-                            <span class="register-submit-text">
-                                <span>DODAJ FILM</span>
-                            </span>
-      </button>
-      <input type="reset" value="RESET">
-    </form>
-    <textarea th:field="*{movie.movieDescription}" rows="4" cols="50" name="comment" form="movie-adding">Wpisz opis filmu tutaj...</textarea>
-  </div>
+    <div>
+      <form th:action="@{/adminPanel/addMovie}" th:object="${movie}" th:method="post" id="movie-adding">
+        <div>
+          <input th:field="*{title}" name="title" id="title" type="text" placeholder="Wpisz tytuł">
+        </div>
+        <div>
+          <select th:field="*{movieCategory}" id="category">
+            <option value="Akcja">Akcja</option>
+            <option value="Przygoda">Przygoda</option>
+            <option value="Dokument">Dokument</option>
+            <option value="Horror">Horror</option>
+            <option value="Komedia">Komedia</option>
+            <option value="Kryminał">Kryminał</option>
+            <option value="Dramat">Dramat</option>
+            <option value="Science_Fiction">Science-Fiction</option>
+            <option value="No_category">No-category</option>
+          </select>
+        </div>
+
+        <div>
+          <input th:field="*{ageCategory}" name="age" id="age" type="number" step="0.01" placeholder="Podaj kategorię wiekową">
+        </div>
+
+        <div>
+          <input th:field="*{length}" name="length" id="length" type="number" placeholder="Podaj dlugość filmu">
+        </div>
 
 
-  <div>
-    <a th:href="@{/adminPanel}"><button>POWRÓT DO PANELU</button></a>
-  </div>
+
+        <div>
+          <button type="submit" class="buttons">
+                                <span class="register-submit-text">
+                                    <span>Dodaj Film</span>
+                                </span>
+
+          </button>
+          <input type="reset" value="Reset">
+        </div>
+      </form>
+
+      <div>
+        <textarea th:field="*{movie.movieDescription}" rows="4" cols="50" name="comment" form="movie-adding">Wpisz opis filmu tutaj...</textarea>
+      </div>
+
+    </div>
+
+
+    <div>
+      <a th:href="@{/adminPanel}"><button class="buttons2">Powrót do panelu</button></a>
+    </div>
+  </section>
 
 </div>
 </body>
