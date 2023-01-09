@@ -32,7 +32,6 @@ public interface IShowRepository extends JpaRepository<IShow, Integer> {
                                        Time show_time);
 
     @Query( value = "SELECT * FROM i_show s " +
-            "WHERE s.id_cinema = (SELECT c.id_cinema FROM cinema c NATURAL JOIN location l WHERE l.street=?1 AND l.city=?2)", nativeQuery = true)
-    List<IShow> getiShowsFromCinema(String street,
-                                       String city);
+            "WHERE s.id_cinema = (SELECT c.id_cinema FROM cinema c NATURAL JOIN location l WHERE l.id_location=?1)", nativeQuery = true)
+    List<IShow> getiShowsFromCinemaLocationID(Integer id);
 }

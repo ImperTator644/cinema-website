@@ -41,7 +41,7 @@ public class IShowService {
         return true;
     }
 
-    public List<IShow> getIShowsFromCinema(String street, String city){
-        return iShowRepository.getiShowsFromCinema(street, city);
+    public List<IShow> getIShowsFromCinemaLocationId(Integer id){
+        return iShowRepository.getiShowsFromCinemaLocationID(id);
     }
 }

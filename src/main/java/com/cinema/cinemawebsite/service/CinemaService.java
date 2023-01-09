@@ -15,4 +15,8 @@ public class CinemaService {
     public List<Cinema> getAllCinemas(){
         return cinemaRepository.findAll();
     }
+
+    public String getLocationFullNameByCinemaId(Integer id){
+        return cinemaRepository.getLocationByCinemaId(id);
+    }
 }
