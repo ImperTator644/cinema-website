@@ -9,11 +9,21 @@
 </head>
 <body>
 <div>
+    <div class="sign-out-button">
+        <form th:action="@{/logout}" method="post" >
+            <input type="submit" value="Sign Out"/>
+        </form>
+    </div>
+
     <header class="main-header">
         <div class="main-header-label">
             <h1>ADMIN PANEL</h1>
         </div>
     </header>
+
+    <div id="response" th:if="${isDeleted == true}">
+        <p>Użytkownik  === <span th:text="${deletedEmail}">email</span> został pomyślnie usunięty</p>
+    </div>
 
     <div class="logging-form">
         <a th:href="@{/adminPanel/deleteClient}"><button class ="buttonPanel">Usun konto</button></a>

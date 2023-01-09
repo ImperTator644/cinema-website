@@ -50,4 +50,27 @@ body{
     padding: 0px;
 }
 
+.sign-out-button{
+    text-align: right;
+
+}
+
+input[type = submit]{
+    border:none;
+    width: 10%;
+    color: rgb(48, 44, 44);
+    background-color: rgb(191, 181, 175);
+    box-shadow: rgb(191,181,175) 0px 0px 7px;
+    padding: 10px;
+    text-align: center;
+    font-size: 16px;
+    border-radius: 8px;
+
+}
+
+input[type = submit]:hover{
+    transform: scale(0.98);
+    opacity: 0.8;
+}
+
 

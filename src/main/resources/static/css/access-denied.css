@@ -1,0 +1,40 @@
+body{
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    font-family: -apple-system,BlinkMacSystemFont,"Segoe UI","Roboto","Oxygen","Ubuntu","Fira Sans","Droid Sans","Helvetica Neue",sans-serif;
+    background-color: rgb(48, 44, 44);
+}
+
+.main-header{
+    text-align: center;
+    font-size: larger;
+    font-weight: bold;
+    padding: 20px 0px;
+    color: rgb(211, 232, 71);
+    text-shadow: rgb(211, 232, 71) 0px 0px 5px
+}
+
+#response{
+    text-align: center;
+    padding: 10px 0px;
+    color: rgb(48, 44, 44);
+}
+
+.buttons2 {
+    font-size: 14px;
+    width: 40%;
+    text-align: center;
+    padding: 12px 20px;
+    margin : 10px;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    box-shadow: rgb(255,255,255) 0px 0px 5px;
+}
+
+.buttons2:hover{
+    transform: scale(0.98);
+    opacity: 0.8;
+}

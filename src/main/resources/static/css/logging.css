@@ -21,7 +21,7 @@ body{
     margin: 0px auto 24px;
     padding: 10px 16px 20px;
     width: 55%;
-    box-shadow: rgb(191,181,175) 0px 0px 15px;
+    box-shadow: rgb(191,181,175) 0px 0px 7px;
     text-align: center;
     border-radius: 5px;
 }
@@ -93,7 +93,7 @@ input[type = submit]{
     width: 10%;
     color: rgb(48, 44, 44);
     background-color: rgb(191, 181, 175);
-    box-shadow: rgb(191,181,175) 0px 0px 15px;
+    box-shadow: rgb(191,181,175) 0px 0px 7px;
     padding: 10px;
     text-align: center;
     font-size: 16px;

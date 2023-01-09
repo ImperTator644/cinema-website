@@ -8,6 +8,11 @@
 </head>
 <body>
 <div>
+  <div class="sign-out-button">
+    <form th:action="@{/logout}" method="post" >
+      <input type="submit" value="Sign Out"/>
+    </form>
+  </div>
   <header class="main-header">
     <div>
       <h1>Dodaj Seans</h1>

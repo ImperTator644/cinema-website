@@ -2,12 +2,15 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" th:href="@{/css/access-denied.css}">
     <title>Access denied</title>
 </head>
 <body>
-<h1>BRAK UPRAWNIEN</h1>
-<div>
-  <a th:href="@{/}"><button>POWRÓT DO LOGOWANIA</button></a>
+<header class="main-header">
+    <h1>BRAK UPRAWNIEŃ</h1>
+</header>
+<div id="response">
+    <a th:href="@{/}"><button class="buttons2">Powrót do logowania</button></a>
 </div>
 </body>
 </html>
