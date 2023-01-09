@@ -107,18 +107,27 @@ input[type=text], select {
     text-align: center;
     border-collapse: collapse;
     margin: 25px 0;
-    min-width: 40%;
+    min-width: 60%;
     margin-left: auto;
     margin-right: auto;
+    border-radius: 4px 4px 4px 4px;
+    overflow: hidden;
+    box-shadow: rgb(255,255,255) 0px 0px 5px;
+    background-color: rgb(255, 255, 255);
 }
 
 .table thead tr{
-    background-color: rgb(211, 232, 71);
-    box-shadow: rgb(211, 232, 71) 0px 0px 7px;
+
+    background-color: rgb(231, 227, 227);
+    box-shadow: rgb(231, 227, 227) 0px 0px 5px;
     color: black;
     font-weight: bold;
 }
 
 .table tbody tr{
-    border-bottom: #ccc;
+    border-bottom: 1px solid #ddd;
+}
+
+.table tbody tr:nth-of-type(even){
+    background-color: rgb(237, 237, 237)
 }
