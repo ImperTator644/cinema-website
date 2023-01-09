@@ -1,8 +1,8 @@
--- MySQL dump 10.13  Distrib 8.0.30, for macos12 (x86_64)
+-- MySQL dump 10.13  Distrib 8.0.31, for Win64 (x86_64)
 --
 -- Host: localhost    Database: cinema
 -- ------------------------------------------------------
--- Server version	8.0.30
+-- Server version	8.0.31
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -101,6 +101,28 @@ INSERT INTO `employee` VALUES (1,2,5,'konrad.kczynski@pracownik.pl','PRACOWNIK')
 UNLOCK TABLES;
 
 --
+-- Table structure for table `hibernate_sequence`
+--
+
+DROP TABLE IF EXISTS `hibernate_sequence`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `hibernate_sequence` (
+  `next_val` bigint DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `hibernate_sequence`
+--
+
+LOCK TABLES `hibernate_sequence` WRITE;
+/*!40000 ALTER TABLE `hibernate_sequence` DISABLE KEYS */;
+INSERT INTO `hibernate_sequence` VALUES (1);
+/*!40000 ALTER TABLE `hibernate_sequence` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `i_show`
 --
 
@@ -120,7 +142,7 @@ CREATE TABLE `i_show` (
   KEY `id_show_idx` (`id_show`),
   CONSTRAINT `ishow_ibfk_1` FOREIGN KEY (`id_show`) REFERENCES `movie_show` (`id_show`),
   CONSTRAINT `ishow_ibfk_2` FOREIGN KEY (`room_number`, `id_cinema`) REFERENCES `room` (`room_number`, `id_cinema`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -129,7 +151,7 @@ CREATE TABLE `i_show` (
 
 LOCK TABLES `i_show` WRITE;
 /*!40000 ALTER TABLE `i_show` DISABLE KEYS */;
-INSERT INTO `i_show` VALUES (1,2,2,6,'2022-12-10','12:05:03',1.50),(2,2,1,6,'2022-12-10','12:10:05',20.70),(3,2,1,5,'2022-12-10','13:01:10',11.20);
+INSERT INTO `i_show` VALUES (1,2,2,6,'2022-12-10','12:05:03',1.50),(2,2,1,6,'2022-12-10','12:10:05',20.70),(3,2,1,5,'2022-12-10','13:01:10',11.20),(4,3,1,5,'2023-01-13','19:50:00',12.90);
 /*!40000 ALTER TABLE `i_show` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -202,7 +224,7 @@ CREATE TABLE `movie_show` (
   PRIMARY KEY (`id_show`),
   KEY `id_movie_idx` (`id_movie`),
   CONSTRAINT `movie_show_ibfk_1` FOREIGN KEY (`id_movie`) REFERENCES `movie` (`id_movie`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -211,7 +233,7 @@ CREATE TABLE `movie_show` (
 
 LOCK TABLES `movie_show` WRITE;
 /*!40000 ALTER TABLE `movie_show` DISABLE KEYS */;
-INSERT INTO `movie_show` VALUES (1,1,'NAPISY'),(2,3,'DUBBING');
+INSERT INTO `movie_show` VALUES (1,1,'NAPISY'),(2,3,'DUBBING'),(3,10,'NAPISY');
 /*!40000 ALTER TABLE `movie_show` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -266,7 +288,7 @@ CREATE TABLE `reserved` (
 
 LOCK TABLES `reserved` WRITE;
 /*!40000 ALTER TABLE `reserved` DISABLE KEYS */;
-INSERT INTO `reserved` VALUES (359,1),(360,1),(240,2);
+INSERT INTO `reserved` VALUES (359,1),(360,1),(240,2),(72,3);
 /*!40000 ALTER TABLE `reserved` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -355,7 +377,7 @@ CREATE TABLE `ticket` (
 
 LOCK TABLES `ticket` WRITE;
 /*!40000 ALTER TABLE `ticket` DISABLE KEYS */;
-INSERT INTO `ticket` VALUES (22,1,0,359),(22,1,0,360),(22,2,0,240);
+INSERT INTO `ticket` VALUES (22,1,0,359),(22,1,0,360),(22,2,0,240),(24,3,1,72);
 /*!40000 ALTER TABLE `ticket` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -496,7 +518,7 @@ DELIMITER ;
 /*!50003 SET character_set_results = utf8mb4 */ ;
 /*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
-/*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
 CREATE DEFINER=`root`@`localhost` PROCEDURE `addiShow`(
 								IN title VARCHAR(30),
@@ -505,10 +527,11 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `addiShow`(
                                 IN street VARCHAR(15),
                                 IN show_date date,
                                 IN show_time time,
-                                IN price DECIMAL(4,2)
+                                IN price DECIMAL(4,2),
+                                IN soundtrack ENUM('NAPISY','DUBBING','LEKTOR_PL')
                             )
 BEGIN
-			SET @idShow = (SELECT id_show from movie_show natural join movie where movie.title = title);
+			SET @idShow = (SELECT id_show from movie_show natural join movie where movie.title = title and movie_show.soundtrack = soundtrack);
             
             IF (@idShow is not null) THEN
             
@@ -815,4 +838,4 @@ DELIMITER ;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-01-09 21:26:49
+-- Dump completed on 2023-01-10  0:13:42
