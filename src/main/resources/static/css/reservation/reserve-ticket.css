@@ -1,0 +1,164 @@
+body{
+    font-size: 17px;
+    font-style: normal;
+    font-weight: 400;
+    font-family: -apple-system,BlinkMacSystemFont,"Segoe UI","Roboto","Oxygen","Ubuntu","Fira Sans","Droid Sans","Helvetica Neue",sans-serif;
+    background-color: rgb(48, 44, 44);
+}
+
+.back-button-div{
+    width: 10%;
+    text-align: right;
+    margin-left: 79%;
+    margin-right: 10px;
+}
+
+#back-button{
+    border:none;
+    width: 100%;
+    color: rgb(48, 44, 44);
+    background-color: rgb(191, 181, 175);
+    box-shadow: rgb(191,181,175) 0px 0px 5px;
+    padding: 10px;
+    text-align: center;
+    font-size: 16px;
+    border-radius: 8px;
+    transition: 0.4s;
+}
+
+.sign-out-div{
+    width: 10%;
+    float: right;
+}
+
+input[type = submit]{
+    border:none;
+    width: 100%;
+    color: rgb(48, 44, 44);
+    background-color: rgb(191, 181, 175);
+    box-shadow: rgb(191,181,175) 0px 0px 5px;
+    padding: 10px;
+    text-align: center;
+    font-size: 16px;
+    border-radius: 8px;
+    transition: 0.4s;
+}
+
+input[type = submit]:hover, #back-button:hover{
+    transform: scale(0.98);
+    opacity: 0.8;
+}
+
+.main-header{
+    text-align: center;
+    font-size: xxx-large;
+    font-weight: bold;
+    padding: 20px 0px;
+    color: rgb(211, 232, 71);
+    text-shadow: rgb(211, 232, 71) 0px 0px 5px
+}
+
+
+.main-section{
+    background-color: rgb(168, 160, 154);
+    display: flex;
+    flex-direction: column;
+    margin: 0px auto 24px;
+    padding: 10px 16px 20px;
+    width: 55%;
+    box-shadow: rgb(168, 160, 154) 0px 0px 7px;
+    text-align: center;
+    border-radius: 5px;
+}
+
+.movie{
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    font-weight: 400;
+    background-color: rgb(221, 210, 203);
+}
+
+.title{
+    font-weight: bold;
+}
+
+.description{
+    margin: 10px;
+}
+
+.reserve-main{
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    font-weight: 400;
+    background-color: rgb(221, 210, 203);
+}
+
+.choose-seat{
+    text-align: left;
+    margin-left: 10px;
+    margin-bottom: 10px
+}
+
+.choose-exact-seat{
+    margin: 5px;
+}
+
+select{
+    width: 40%;
+    text-align: center;
+    padding: 8px;
+    margin : 10px;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    box-shadow: rgb(255,255,255) 0px 0px 2px;
+}
+
+input[type = reset] {
+    width: 46%;
+    text-align: center;
+    padding: 12px;
+    margin-left: 0px;
+    margin-top: 10px;
+    margin-right: 0px;
+    display: inline-block;
+    border: 1px solid #ccc;
+    font-size: 14px;
+    border-radius: 4px;
+    box-sizing: border-box;
+    box-shadow: rgb(255,255,255) 0px 0px 2px;
+    color: rgb(48, 44, 44);
+    transition: 0.4s;
+}
+
+.buttons {
+    width: 46%;
+    text-align: center;
+    padding: 12px;
+    margin-left: 0px;
+    margin-top: 10px;
+    margin-right: 10px;
+    display: inline-block;
+    border: 1px solid #ccc;
+    font-size: 14px;
+    border-radius: 4px;
+    box-sizing: border-box;
+    box-shadow: rgb(255,255,255) 0px 0px 2px;
+    color: rgb(48, 44, 44);
+    transition: 0.4s;
+}
+
+input[type = reset]:hover,.buttons:hover{
+    transform: scale(0.97);
+    opacity: 0.8;
+}
+
