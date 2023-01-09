@@ -54,7 +54,7 @@ CREATE TABLE `client` (
   PRIMARY KEY (`id_client`),
   KEY `client_ibfk_1_idx` (`email`),
   CONSTRAINT `client_ibkf_1` FOREIGN KEY (`email`) REFERENCES `personal_data` (`email`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -63,7 +63,7 @@ CREATE TABLE `client` (
 
 LOCK TABLES `client` WRITE;
 /*!40000 ALTER TABLE `client` DISABLE KEYS */;
-INSERT INTO `client` VALUES (7,'konrad.kczynski@student.pk.edu.pl'),(6,'lukasz.blicharz@student.pk.edu.pl');
+INSERT INTO `client` VALUES (24,'admin@admin'),(23,'k@com'),(22,'test@com');
 /*!40000 ALTER TABLE `client` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -129,7 +129,7 @@ CREATE TABLE `i_show` (
 
 LOCK TABLES `i_show` WRITE;
 /*!40000 ALTER TABLE `i_show` DISABLE KEYS */;
-INSERT INTO `i_show` VALUES (1,2,1,2,'2022-12-10','12:05:03',1.50),(2,2,1,2,'2022-12-10','12:10:05',20.70),(3,2,3,2,'2022-12-10','13:01:10',11.20);
+INSERT INTO `i_show` VALUES (1,2,2,6,'2022-12-10','12:05:03',1.50),(2,2,1,6,'2022-12-10','12:10:05',20.70),(3,2,1,5,'2022-12-10','13:01:10',11.20);
 /*!40000 ALTER TABLE `i_show` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -175,7 +175,7 @@ CREATE TABLE `movie` (
   `age_category` int NOT NULL,
   `length` int NOT NULL,
   PRIMARY KEY (`id_movie`)
-) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -184,7 +184,7 @@ CREATE TABLE `movie` (
 
 LOCK TABLES `movie` WRITE;
 /*!40000 ALTER TABLE `movie` DISABLE KEYS */;
-INSERT INTO `movie` VALUES (1,'DZIKA NOC','Kiedy pewna, bogata rodzina zostaje zakładnikami w Wigilię, przestępcy nie są przygotowani na niespodziewanego bojownika. Święty Mikołaj (w tej roli David Harbour, serial Stranger Things) jest na miejscu i ma zamiar pokazać, dlaczego Mikołaj nie będzie taki święty.','DRAMAT',15,112),(2,'DEMON SLAYER: MUGEN TRAIN','Po ukończeniu treningu rehabilitacyjnego, Tanjiro i jego towarzysze udają się na kolejną misję. W Nieskończonym Pociągu doszło do serii tajemniczych zniknięć ponad czterdziestu pasażerów. Tanjiro i Nezuko, wraz z Zenitsu i Inosuke, dołączą do jednego z najpotężniejszych szermierzy wśród Korpusu Zabójców Demonów - Filara Płomienia, Kyojuro Rengoku. Razem stawią czoła nieznanemu zagrożeniu.','SCIENCE-FICTION',12,120),(3,'KOBIETA NA DACHU','Mirka to sześćdziesięcioletnia położna. Jest świetna w swoim fachu, a jeszcze lepsza w ukrywaniu swoich potrzeb i uczuć. W domu też skupia się na innych - mężu i dorosłym synu. Czasem wymyka się na dach swojego bloku, żeby zapalić papierosa. To jedyna rzecz, jaką robi tylko dla siebie, aż do dnia, w którym napada na bank uzbrojona w niewielki nóż kuchenny. Czy wydarzenie to pozwoli, by Mirka spojrzała na swoje życie z innej perspektywy?','DRAMAT',15,97),(4,'MENU','Młoda para wybiera się na odległą wyspę, do ekskluzywnej restauracji. Okazuje się jednak, że nie wszystko jest takie jakim się wydaje a w menu czekają zaskakujące niespodzianki.','KOMEDIA',15,107),(5,'CHŁOPCY Z FERAJNY','Kilkunastoletni Henry i Tommy DeVito trafiają pod opiekę potężnego gangstera. Obaj szybko uczą się panujących w mafii reguł.','KRYMINAŁ',16,146),(6,'NAZNACZONY','Po upadku z drabiny chłopiec traci przytomność. Będąc w śpiączce, wchodzi do świata umarłych.','HORROR',16,103),(7,'SZKLANA PUŁAPKA','Policjant rozprawia się z niebezpiecznymi terrorystami, którzy opanowali biurowiec. Stawką jest życie wielu osób.','AKCJA',18,131),(8,'JUMANJI','Dwunastoletni Alan wraz z koleżanką rozpoczyna zabawę w tajemniczą grę Jumanji, która wciąga go do dżungli. Po latach zostaje uwolniony przez dwójkę rodzeństwa, Judy i Petera.','PRZYGODA',7,104),(9,'SÓL ZIEMI','Sebastiao Salgado przez 40 lat podróżował po świecie dokumentując ludzkość w okresie dramatycznych zmian.','DOKUMENT',13,110),(10,'AVATAR','Jake, sparaliżowany były komandos, zostaje wysłany na planetę Pandora, gdzie zaprzyjaźnia się z lokalną społecznością i postanawia jej pomóc.','SCIENCE-FICTION',12,162),(11,'THE ROOM','Życie poczciwego bankiera zostaje wywrócone do góry nogami w momencie, gdy jego narzeczona zaczyna się spotykać z ich najlepszym przyjacielem.','KOMEDIA',21,99),(12,'JOHNNY','Patryk włamuje się do domku w małym mieście. Wyrok sądu nakazuje mu prace społeczne w puckim hospicjum, gdzie poznaje niezwykłego ks. Jana Kaczkowskiego. Duchowny angażuje młodych chłopaków z zawodówki, na pozór twardych buntowników, w pomoc śmiertelnie chorym. W swojej pracy skupia się na bliskości, czułości i walce o relacje z drugim człowiekiem. Uczy empatii. A czyni to z hurtową ilością humoru, czym zyskuje ogromną popularność. Niedługo później Jan sam staje się pacjentem swojego hospicjum. Patryk zostaje postawiony w sytuacji, która zmieni całe jego życie.','DOKUMENT',15,119),(13,'John Pedro','','SCIENCE-FICTION',5,156),(14,'Dupa Jana','','NO-CATEGORY',5,156),(15,'Jana dupa','','NO-CATEGORY',5,156);
+INSERT INTO `movie` VALUES (1,'DZIKA NOC','Kiedy pewna, bogata rodzina zostaje zakładnikami w Wigilię, przestępcy nie są przygotowani na niespodziewanego bojownika. Święty Mikołaj (w tej roli David Harbour, serial Stranger Things) jest na miejscu i ma zamiar pokazać, dlaczego Mikołaj nie będzie taki święty.','DRAMAT',15,112),(2,'DEMON SLAYER: MUGEN TRAIN','Po ukończeniu treningu rehabilitacyjnego, Tanjiro i jego towarzysze udają się na kolejną misję. W Nieskończonym Pociągu doszło do serii tajemniczych zniknięć ponad czterdziestu pasażerów. Tanjiro i Nezuko, wraz z Zenitsu i Inosuke, dołączą do jednego z najpotężniejszych szermierzy wśród Korpusu Zabójców Demonów - Filara Płomienia, Kyojuro Rengoku. Razem stawią czoła nieznanemu zagrożeniu.','SCIENCE-FICTION',12,120),(3,'KOBIETA NA DACHU','Mirka to sześćdziesięcioletnia położna. Jest świetna w swoim fachu, a jeszcze lepsza w ukrywaniu swoich potrzeb i uczuć. W domu też skupia się na innych - mężu i dorosłym synu. Czasem wymyka się na dach swojego bloku, żeby zapalić papierosa. To jedyna rzecz, jaką robi tylko dla siebie, aż do dnia, w którym napada na bank uzbrojona w niewielki nóż kuchenny. Czy wydarzenie to pozwoli, by Mirka spojrzała na swoje życie z innej perspektywy?','DRAMAT',15,97),(4,'MENU','Młoda para wybiera się na odległą wyspę, do ekskluzywnej restauracji. Okazuje się jednak, że nie wszystko jest takie jakim się wydaje a w menu czekają zaskakujące niespodzianki.','KOMEDIA',15,107),(5,'CHŁOPCY Z FERAJNY','Kilkunastoletni Henry i Tommy DeVito trafiają pod opiekę potężnego gangstera. Obaj szybko uczą się panujących w mafii reguł.','KRYMINAŁ',16,146),(6,'NAZNACZONY','Po upadku z drabiny chłopiec traci przytomność. Będąc w śpiączce, wchodzi do świata umarłych.','HORROR',16,103),(7,'SZKLANA PUŁAPKA','Policjant rozprawia się z niebezpiecznymi terrorystami, którzy opanowali biurowiec. Stawką jest życie wielu osób.','AKCJA',18,131),(8,'JUMANJI','Dwunastoletni Alan wraz z koleżanką rozpoczyna zabawę w tajemniczą grę Jumanji, która wciąga go do dżungli. Po latach zostaje uwolniony przez dwójkę rodzeństwa, Judy i Petera.','PRZYGODA',7,104),(9,'SÓL ZIEMI','Sebastiao Salgado przez 40 lat podróżował po świecie dokumentując ludzkość w okresie dramatycznych zmian.','DOKUMENT',13,110),(10,'AVATAR','Jake, sparaliżowany były komandos, zostaje wysłany na planetę Pandora, gdzie zaprzyjaźnia się z lokalną społecznością i postanawia jej pomóc.','SCIENCE-FICTION',12,162),(11,'THE ROOM','Życie poczciwego bankiera zostaje wywrócone do góry nogami w momencie, gdy jego narzeczona zaczyna się spotykać z ich najlepszym przyjacielem.','KOMEDIA',21,99),(12,'JOHNNY','Patryk włamuje się do domku w małym mieście. Wyrok sądu nakazuje mu prace społeczne w puckim hospicjum, gdzie poznaje niezwykłego ks. Jana Kaczkowskiego. Duchowny angażuje młodych chłopaków z zawodówki, na pozór twardych buntowników, w pomoc śmiertelnie chorym. W swojej pracy skupia się na bliskości, czułości i walce o relacje z drugim człowiekiem. Uczy empatii. A czyni to z hurtową ilością humoru, czym zyskuje ogromną popularność. Niedługo później Jan sam staje się pacjentem swojego hospicjum. Patryk zostaje postawiony w sytuacji, która zmieni całe jego życie.','DOKUMENT',15,119),(13,'John Pedro','','SCIENCE-FICTION',5,156),(14,'Dupa Jana','','NO-CATEGORY',5,156),(15,'Jana dupa','','NO-CATEGORY',5,156),(16,'Chuj Ci na kurwe','','DRAMAT',7,124),(17,'Wal sie na cyce','Walimy sie na cyce spadówa mam robote','PRZYGODA',18,29),(18,'Krowa ','','AKCJA',12,123),(19,'Inna krowa rowa','Inna krowa ma rowa','NO-CATEGORY',13,58);
 /*!40000 ALTER TABLE `movie` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -228,7 +228,7 @@ CREATE TABLE `personal_data` (
   `phone_number` varchar(11) DEFAULT NULL,
   `email` varchar(45) NOT NULL,
   `date_of_birth` date NOT NULL,
-  `password` varchar(30) NOT NULL,
+  `password` varchar(200) NOT NULL,
   PRIMARY KEY (`email`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -239,7 +239,7 @@ CREATE TABLE `personal_data` (
 
 LOCK TABLES `personal_data` WRITE;
 /*!40000 ALTER TABLE `personal_data` DISABLE KEYS */;
-INSERT INTO `personal_data` VALUES ('Konrad','Kaczynski','112','konrad.kczynski@pracownik.pl','2022-12-09','haski'),('Konrad','Kaczynski','112','konrad.kczynski@student.pk.edu.pl','2022-12-09','haski'),('Lukasz','Blicharz','997','lukasz.blicharz@student.pk.edu.pl','2022-12-09','kotki'),('Zygmunt','Ofiara','123456789','zdzisiek1234@pracownik.pl','2022-12-09','ofiaraja');
+INSERT INTO `personal_data` VALUES ('admin','admin','admin','admin@admin','1999-01-01','$2a$10$ifAWw9jUyXFO46N/oaIgVO.x5qzjQ2KtckCBJUTw0UAYWQEzG03gi'),('Konrad','Kaczyński','4206969','k@com','2023-01-17','$2a$10$sDyi09xJ.UnjR5dQ4Wo7peWQtyzhIx7SGcvj0fMWf7/h.r4.m0CJG'),('Konrad','Kaczynski','112','konrad.kczynski@pracownik.pl','2022-12-09','haski'),('test','test','test','test@com','2023-01-21','$2a$10$Uwd0XH8Si.iu7fkPONxeqegQfEKdM7mbIkGN6nGzTHNw64sO3M6vO'),('Zygmunt','Ofiara','123456789','zdzisiek1234@pracownik.pl','2022-12-09','ofiaraja');
 /*!40000 ALTER TABLE `personal_data` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -266,7 +266,7 @@ CREATE TABLE `reserved` (
 
 LOCK TABLES `reserved` WRITE;
 /*!40000 ALTER TABLE `reserved` DISABLE KEYS */;
-INSERT INTO `reserved` VALUES (16,3),(20,3);
+INSERT INTO `reserved` VALUES (359,1),(360,1),(240,2);
 /*!40000 ALTER TABLE `reserved` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -281,6 +281,7 @@ CREATE TABLE `room` (
   `room_number` int NOT NULL,
   `id_cinema` int unsigned NOT NULL,
   `seat_count` int NOT NULL,
+  `row_count` int unsigned NOT NULL,
   PRIMARY KEY (`room_number`,`id_cinema`),
   KEY `id_cinema_idx` (`id_cinema`),
   CONSTRAINT `room_ibfk_1` FOREIGN KEY (`id_cinema`) REFERENCES `cinema` (`id_cinema`)
@@ -293,7 +294,7 @@ CREATE TABLE `room` (
 
 LOCK TABLES `room` WRITE;
 /*!40000 ALTER TABLE `room` DISABLE KEYS */;
-INSERT INTO `room` VALUES (1,2,58),(1,4,126),(2,2,58),(2,4,78),(3,2,20);
+INSERT INTO `room` VALUES (1,5,100,5),(1,6,120,6),(2,6,120,6);
 /*!40000 ALTER TABLE `room` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -313,7 +314,7 @@ CREATE TABLE `seat` (
   PRIMARY KEY (`id_seat`),
   KEY `room_number_cinema_idx` (`room_number`,`id_cinema`),
   CONSTRAINT `seat_ibfk_1` FOREIGN KEY (`room_number`, `id_cinema`) REFERENCES `room` (`room_number`, `id_cinema`)
-) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=361 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -322,7 +323,7 @@ CREATE TABLE `seat` (
 
 LOCK TABLES `seat` WRITE;
 /*!40000 ALTER TABLE `seat` DISABLE KEYS */;
-INSERT INTO `seat` VALUES (5,4,3,2,1),(5,3,3,2,2),(5,2,3,2,3),(5,1,3,2,4),(4,4,3,2,5),(4,3,3,2,6),(4,2,3,2,7),(4,1,3,2,8),(3,4,3,2,9),(3,3,3,2,10),(3,2,3,2,11),(3,1,3,2,12),(2,4,3,2,13),(2,3,3,2,14),(2,2,3,2,15),(2,1,3,2,16),(1,4,3,2,17),(1,3,3,2,18),(1,2,3,2,19),(1,1,3,2,20);
+INSERT INTO `seat` VALUES (5,20,1,5,21),(5,19,1,5,22),(5,18,1,5,23),(5,17,1,5,24),(5,16,1,5,25),(5,15,1,5,26),(5,14,1,5,27),(5,13,1,5,28),(5,12,1,5,29),(5,11,1,5,30),(5,10,1,5,31),(5,9,1,5,32),(5,8,1,5,33),(5,7,1,5,34),(5,6,1,5,35),(5,5,1,5,36),(5,4,1,5,37),(5,3,1,5,38),(5,2,1,5,39),(5,1,1,5,40),(4,20,1,5,41),(4,19,1,5,42),(4,18,1,5,43),(4,17,1,5,44),(4,16,1,5,45),(4,15,1,5,46),(4,14,1,5,47),(4,13,1,5,48),(4,12,1,5,49),(4,11,1,5,50),(4,10,1,5,51),(4,9,1,5,52),(4,8,1,5,53),(4,7,1,5,54),(4,6,1,5,55),(4,5,1,5,56),(4,4,1,5,57),(4,3,1,5,58),(4,2,1,5,59),(4,1,1,5,60),(3,20,1,5,61),(3,19,1,5,62),(3,18,1,5,63),(3,17,1,5,64),(3,16,1,5,65),(3,15,1,5,66),(3,14,1,5,67),(3,13,1,5,68),(3,12,1,5,69),(3,11,1,5,70),(3,10,1,5,71),(3,9,1,5,72),(3,8,1,5,73),(3,7,1,5,74),(3,6,1,5,75),(3,5,1,5,76),(3,4,1,5,77),(3,3,1,5,78),(3,2,1,5,79),(3,1,1,5,80),(2,20,1,5,81),(2,19,1,5,82),(2,18,1,5,83),(2,17,1,5,84),(2,16,1,5,85),(2,15,1,5,86),(2,14,1,5,87),(2,13,1,5,88),(2,12,1,5,89),(2,11,1,5,90),(2,10,1,5,91),(2,9,1,5,92),(2,8,1,5,93),(2,7,1,5,94),(2,6,1,5,95),(2,5,1,5,96),(2,4,1,5,97),(2,3,1,5,98),(2,2,1,5,99),(2,1,1,5,100),(1,20,1,5,101),(1,19,1,5,102),(1,18,1,5,103),(1,17,1,5,104),(1,16,1,5,105),(1,15,1,5,106),(1,14,1,5,107),(1,13,1,5,108),(1,12,1,5,109),(1,11,1,5,110),(1,10,1,5,111),(1,9,1,5,112),(1,8,1,5,113),(1,7,1,5,114),(1,6,1,5,115),(1,5,1,5,116),(1,4,1,5,117),(1,3,1,5,118),(1,2,1,5,119),(1,1,1,5,120),(6,20,1,6,121),(6,19,1,6,122),(6,18,1,6,123),(6,17,1,6,124),(6,16,1,6,125),(6,15,1,6,126),(6,14,1,6,127),(6,13,1,6,128),(6,12,1,6,129),(6,11,1,6,130),(6,10,1,6,131),(6,9,1,6,132),(6,8,1,6,133),(6,7,1,6,134),(6,6,1,6,135),(6,5,1,6,136),(6,4,1,6,137),(6,3,1,6,138),(6,2,1,6,139),(6,1,1,6,140),(5,20,1,6,141),(5,19,1,6,142),(5,18,1,6,143),(5,17,1,6,144),(5,16,1,6,145),(5,15,1,6,146),(5,14,1,6,147),(5,13,1,6,148),(5,12,1,6,149),(5,11,1,6,150),(5,10,1,6,151),(5,9,1,6,152),(5,8,1,6,153),(5,7,1,6,154),(5,6,1,6,155),(5,5,1,6,156),(5,4,1,6,157),(5,3,1,6,158),(5,2,1,6,159),(5,1,1,6,160),(4,20,1,6,161),(4,19,1,6,162),(4,18,1,6,163),(4,17,1,6,164),(4,16,1,6,165),(4,15,1,6,166),(4,14,1,6,167),(4,13,1,6,168),(4,12,1,6,169),(4,11,1,6,170),(4,10,1,6,171),(4,9,1,6,172),(4,8,1,6,173),(4,7,1,6,174),(4,6,1,6,175),(4,5,1,6,176),(4,4,1,6,177),(4,3,1,6,178),(4,2,1,6,179),(4,1,1,6,180),(3,20,1,6,181),(3,19,1,6,182),(3,18,1,6,183),(3,17,1,6,184),(3,16,1,6,185),(3,15,1,6,186),(3,14,1,6,187),(3,13,1,6,188),(3,12,1,6,189),(3,11,1,6,190),(3,10,1,6,191),(3,9,1,6,192),(3,8,1,6,193),(3,7,1,6,194),(3,6,1,6,195),(3,5,1,6,196),(3,4,1,6,197),(3,3,1,6,198),(3,2,1,6,199),(3,1,1,6,200),(2,20,1,6,201),(2,19,1,6,202),(2,18,1,6,203),(2,17,1,6,204),(2,16,1,6,205),(2,15,1,6,206),(2,14,1,6,207),(2,13,1,6,208),(2,12,1,6,209),(2,11,1,6,210),(2,10,1,6,211),(2,9,1,6,212),(2,8,1,6,213),(2,7,1,6,214),(2,6,1,6,215),(2,5,1,6,216),(2,4,1,6,217),(2,3,1,6,218),(2,2,1,6,219),(2,1,1,6,220),(1,20,1,6,221),(1,19,1,6,222),(1,18,1,6,223),(1,17,1,6,224),(1,16,1,6,225),(1,15,1,6,226),(1,14,1,6,227),(1,13,1,6,228),(1,12,1,6,229),(1,11,1,6,230),(1,10,1,6,231),(1,9,1,6,232),(1,8,1,6,233),(1,7,1,6,234),(1,6,1,6,235),(1,5,1,6,236),(1,4,1,6,237),(1,3,1,6,238),(1,2,1,6,239),(1,1,1,6,240),(6,20,2,6,241),(6,19,2,6,242),(6,18,2,6,243),(6,17,2,6,244),(6,16,2,6,245),(6,15,2,6,246),(6,14,2,6,247),(6,13,2,6,248),(6,12,2,6,249),(6,11,2,6,250),(6,10,2,6,251),(6,9,2,6,252),(6,8,2,6,253),(6,7,2,6,254),(6,6,2,6,255),(6,5,2,6,256),(6,4,2,6,257),(6,3,2,6,258),(6,2,2,6,259),(6,1,2,6,260),(5,20,2,6,261),(5,19,2,6,262),(5,18,2,6,263),(5,17,2,6,264),(5,16,2,6,265),(5,15,2,6,266),(5,14,2,6,267),(5,13,2,6,268),(5,12,2,6,269),(5,11,2,6,270),(5,10,2,6,271),(5,9,2,6,272),(5,8,2,6,273),(5,7,2,6,274),(5,6,2,6,275),(5,5,2,6,276),(5,4,2,6,277),(5,3,2,6,278),(5,2,2,6,279),(5,1,2,6,280),(4,20,2,6,281),(4,19,2,6,282),(4,18,2,6,283),(4,17,2,6,284),(4,16,2,6,285),(4,15,2,6,286),(4,14,2,6,287),(4,13,2,6,288),(4,12,2,6,289),(4,11,2,6,290),(4,10,2,6,291),(4,9,2,6,292),(4,8,2,6,293),(4,7,2,6,294),(4,6,2,6,295),(4,5,2,6,296),(4,4,2,6,297),(4,3,2,6,298),(4,2,2,6,299),(4,1,2,6,300),(3,20,2,6,301),(3,19,2,6,302),(3,18,2,6,303),(3,17,2,6,304),(3,16,2,6,305),(3,15,2,6,306),(3,14,2,6,307),(3,13,2,6,308),(3,12,2,6,309),(3,11,2,6,310),(3,10,2,6,311),(3,9,2,6,312),(3,8,2,6,313),(3,7,2,6,314),(3,6,2,6,315),(3,5,2,6,316),(3,4,2,6,317),(3,3,2,6,318),(3,2,2,6,319),(3,1,2,6,320),(2,20,2,6,321),(2,19,2,6,322),(2,18,2,6,323),(2,17,2,6,324),(2,16,2,6,325),(2,15,2,6,326),(2,14,2,6,327),(2,13,2,6,328),(2,12,2,6,329),(2,11,2,6,330),(2,10,2,6,331),(2,9,2,6,332),(2,8,2,6,333),(2,7,2,6,334),(2,6,2,6,335),(2,5,2,6,336),(2,4,2,6,337),(2,3,2,6,338),(2,2,2,6,339),(2,1,2,6,340),(1,20,2,6,341),(1,19,2,6,342),(1,18,2,6,343),(1,17,2,6,344),(1,16,2,6,345),(1,15,2,6,346),(1,14,2,6,347),(1,13,2,6,348),(1,12,2,6,349),(1,11,2,6,350),(1,10,2,6,351),(1,9,2,6,352),(1,8,2,6,353),(1,7,2,6,354),(1,6,2,6,355),(1,5,2,6,356),(1,4,2,6,357),(1,3,2,6,358),(1,2,2,6,359),(1,1,2,6,360);
 /*!40000 ALTER TABLE `seat` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -354,7 +355,7 @@ CREATE TABLE `ticket` (
 
 LOCK TABLES `ticket` WRITE;
 /*!40000 ALTER TABLE `ticket` DISABLE KEYS */;
-INSERT INTO `ticket` VALUES (6,3,0,20),(7,3,1,16);
+INSERT INTO `ticket` VALUES (22,1,0,359),(22,1,0,360),(22,2,0,240);
 /*!40000 ALTER TABLE `ticket` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -438,7 +439,7 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `addClient`(IN name VARCHAR(30),
                             IN phone_number VARCHAR(11),
                             IN email varchar(45),
                             IN date_of_birth date,
-                            IN password varchar(30)
+                            IN password varchar(200)
                             )
 BEGIN
 			SET @email = (SELECT personal_data.email from personal_data where personal_data.email = email);
@@ -674,7 +675,7 @@ BEGIN
 						ELSE 
 							SET @id_room = @id_room + 1; 
                     END IF;
-                    INSERT INTO room(room_number, id_cinema, seat_count) VALUES (@id_room, @id_cinema, seat_count);
+                    INSERT INTO room(room_number, id_cinema, seat_count, row_count) VALUES (@id_room, @id_cinema, seat_count, row_count);
                     
                     SET @row_num = row_count;
                     SET @seat_num = seat_count / row_count;
@@ -718,6 +719,8 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `deleteClient`(
                             IN email varchar(45)
                             )
 BEGIN
+			set @id_client = (SELECT client.id_client from client where client.email = email);
+            DELETE FROM ticket WHERE ticket.id_client = @id_client;
 			DELETE FROM client where client.email = email;
             DELETE FROM personal_data where personal_data.email = email;
        END ;;
@@ -812,4 +815,4 @@ DELIMITER ;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-01-07 20:04:44
+-- Dump completed on 2023-01-09 21:26:49
