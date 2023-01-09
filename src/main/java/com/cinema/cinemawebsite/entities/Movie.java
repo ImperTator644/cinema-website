@@ -3,6 +3,7 @@ package com.cinema.cinemawebsite.entities;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import lombok.ToString;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -15,6 +16,7 @@ import javax.validation.constraints.NotNull;
 @Getter
 @Setter
 @NoArgsConstructor
+@ToString
 @Table(name = "movie")
 public class Movie {
     @Column(name = "id_movie")
