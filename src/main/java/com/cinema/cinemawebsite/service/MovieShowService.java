@@ -52,8 +52,9 @@ public class MovieShowService {
         return movieRepository.getSoundtrackById(movieShowID);
     }
 
-    public List<MovieShow> getMovieShows(){
+    public List<MovieShow> getMovieShows() {
         return movieShowRepository.getMovieShows();
+    }
 
     public MovieShow getMovieShowByID(Integer showID){
         return movieShowRepository.getMovieShowByID(showID);
