@@ -16,4 +16,6 @@ public interface MovieRepository extends JpaRepository<Movie, Integer> {
 
     @Query(value = "SELECT * FROM Movie m WHERE m.id_movie=?1", nativeQuery = true)
     Movie getMovieById(Integer id);
+    @Query(value = "SELECT m.soundtrack FROM movie_show m WHERE m.id_show=?1", nativeQuery = true)
+    String getSoundtrackById(Integer movieShowID);
 }

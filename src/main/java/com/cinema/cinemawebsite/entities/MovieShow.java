@@ -24,5 +24,5 @@ public class MovieShow {
     private int idMovie;
 
     @Column(name = "soundtrack")
-    private SoundtrackType soundtrack;
+    private String soundtrack;
 }

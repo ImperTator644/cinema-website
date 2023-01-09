@@ -91,7 +91,7 @@ public class PanelAdminController {
     public String openAddIShowPage(@RequestParam(name="addedIShow",required = false)String addedIShow, Model model){
         model.addAttribute("addedIShow",addedIShow);
         model.addAttribute("ishow",new IShowDto());
-        model.addAttribute("movieList", movieService.getMovies());
+        model.addAttribute("movieShowService", movieShowService);
         return "admin/ishow-adding";
     }
 

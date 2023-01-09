@@ -40,6 +40,7 @@ input[type = reset], select {
     box-sizing: border-box;
     box-shadow: rgb(255,255,255) 0px 0px 5px;
     color: rgb(48, 44, 44);
+    transition: 0.4s;
 }
 
 input[type = reset]:hover{
@@ -65,6 +66,7 @@ input[type = reset]:hover{
     border-radius: 4px;
     box-shadow: rgb(255,255,255) 0px 0px 5px;
     color: rgb(48, 44, 44);
+    transition: 0.4s;
 }
 
 .buttons:hover{
@@ -83,6 +85,7 @@ input[type = reset]:hover{
     border-radius: 4px;
     box-sizing: border-box;
     box-shadow: rgb(255,255,255) 0px 0px 5px;
+    transition: 0.4s;
 }
 
 .buttons2:hover{

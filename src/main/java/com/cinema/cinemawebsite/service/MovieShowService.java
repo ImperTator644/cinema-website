@@ -13,8 +13,8 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Objects;
-import java.util.Optional;
 
 @Service
 @Slf4j
@@ -28,6 +28,7 @@ public class MovieShowService {
 
     @Autowired
     private SoundtrackStringToEnumConverter soundtrackStringToEnumConverter;
+
 
     public void addMovieShow(ShowDto showDto){
         SoundtrackType soundtrackType;
@@ -44,6 +45,14 @@ public class MovieShowService {
     public Movie getMovieFromShow(Integer movieShowID){
         Integer movieId = movieShowRepository.getMovieIdByShowId(movieShowID);
         return movieRepository.getMovieById(movieId);
+    }
+
+    public String getSoundtrackFromShow(Integer movieShowID){
+        return movieRepository.getSoundtrackById(movieShowID);
+    }
+
+    public List<MovieShow> getMovieShows(){
+        return movieShowRepository.getMovieShows();
     }
 
 }

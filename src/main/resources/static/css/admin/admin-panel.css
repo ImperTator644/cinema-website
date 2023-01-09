@@ -34,7 +34,8 @@ body{
     font-size: 16px;
     border-radius: 8px;
     box-shadow: rgb(191,181,175) 0px 0px 7px;
-    margin: 3px
+    margin: 3px;
+    transition: 0.4s;
 
 }
 
@@ -65,7 +66,7 @@ input[type = submit]{
     text-align: center;
     font-size: 16px;
     border-radius: 8px;
-
+    transition: 0.4s;
 }
 
 input[type = submit]:hover{
