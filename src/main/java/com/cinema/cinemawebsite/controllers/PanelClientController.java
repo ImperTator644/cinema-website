@@ -14,7 +14,9 @@ public class PanelClientController {
 
     @GetMapping
     public String openClientPanel(@AuthenticationPrincipal CustomUserDetails customUserDetails, Model model){
-        model.addAttribute("login", customUserDetails.getUsername());
+        if(customUserDetails != null) {
+            model.addAttribute("login", customUserDetails.getUsername());
+        }
         return "client/client-panel";
     }
 }
