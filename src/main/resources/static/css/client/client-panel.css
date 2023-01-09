@@ -27,6 +27,7 @@ body{
     border-radius: 8px;
     background-color: rgb(191, 181, 175);
     box-shadow: rgb(191,181,175) 0px 0px 7px;
+    transition: 0.4s;
 
 }
 
@@ -49,6 +50,7 @@ body{
     border-radius: 8px;
     background-color: rgb(191, 181, 175);
     box-shadow: rgb(191,181,175) 0px 0px 7px;
+    transition: 0.4s;
 
 }
 
@@ -78,6 +80,7 @@ input[type = submit]{
     font-size: 16px;
     border-radius: 8px;
     margin: 0px;
+    transition: 0.4s;
 }
 
 input[type = submit]:hover{

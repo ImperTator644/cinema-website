@@ -81,12 +81,17 @@
             <thead>
             <tr>
                 <th>Tytuły Filmów</th>
+                <th>Soundtrack</th>
             </tr>
             </thead>
             <tbody>
-            <tr th:each="client: ${movieList}">
-                <td th:text="${client.getTitle()}">Movie titles</td>
-            </tr>
+            <span th:each="iShow: ${movieShowService.getMovieShows()}">
+                    <tr th:with="movie = ${movieShowService.getMovieFromShow(iShow.getIdShow())}">
+                        <td th:text="${movie.getTitle()}">Movie titles</td>
+                        <td th:text="${movieShowService.getSoundtrackFromShow(iShow.getIdShow())}">Soundtrack</td>
+                    </tr>
+                </span>
+
 
             </tbody>
         </table>

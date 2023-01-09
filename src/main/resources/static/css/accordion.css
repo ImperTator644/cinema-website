@@ -1,27 +1,117 @@
-.accordion {
-    background-color: #eee;
-    color: #444;
-    cursor: pointer;
-    padding: 18px;
-    width: 100%;
-    border: none;
-    text-align: left;
-    outline: none;
-    font-size: 15px;
+body{
+    font-size: 17px;
+    font-style: normal;
+    font-weight: 400;
+    font-family: -apple-system,BlinkMacSystemFont,"Segoe UI","Roboto","Oxygen","Ubuntu","Fira Sans","Droid Sans","Helvetica Neue",sans-serif;
+    background-color: rgb(48, 44, 44);
+}
+
+.sign-out-button{
+    text-align: right;
+
+}
+
+input[type = submit]{
+    border:none;
+    width: 10%;
+    color: rgb(48, 44, 44);
+    background-color: rgb(191, 181, 175);
+    box-shadow: rgb(191,181,175) 0px 0px 5px;
+    padding: 10px;
+    text-align: center;
+    font-size: 16px;
+    border-radius: 8px;
     transition: 0.4s;
 }
 
-.active, .accordion:hover {
-    background-color: #ccc;
+input[type = submit]:hover{
+    transform: scale(0.98);
+    opacity: 0.8;
 }
 
-.panel {
+
+
+.main-header{
+    text-align: center;
+    font-size: larger;
+    font-weight: bold;
+    padding: 20px 0px;
+    color: rgb(211, 232, 71);
+    text-shadow: rgb(211, 232, 71) 0px 0px 5px
+}
+
+#center{
+    text-align: center;
+}
+
+.main-panel-button {
+    background-color: rgb(191,181,175);
+    color: #444;
+    cursor: pointer;
+    padding: 18px;
+    width: 60%;
+    border: none;
+    text-align: center;
+    outline: none;
+    font-size: 15px;
+    transition: 0.4s;
+    border-radius: 8px;
+    margin-bottom: 2px;
+    margin-top: 2px;
+}
+
+.main-panel-button:hover {
+    transform: scale(0.99);
+    opacity: 0.8;
+}
+
+.main-panel {
     padding: 0 18px;
-    display: none;
-    background-color: white;
+    width: 57.6%;
+    margin: auto;
+    text-align: center;
+     display: none;
+    background-color: rgb(168, 160, 154);
     overflow: hidden;
+    border-radius: 8px;
+}
+
+.ishow-panel{
+    margin-left: auto;
+    margin-right: auto;
+    width: 60%;
+}
+
+
+
+#choose-show{
+    font-weight: bold;
+    font-size: larger;
+    color: rgb(48, 44, 44);
+    margin: 4px;
 }
 
 .one-ishow{
-    border: solid black;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    background-color: rgb(191,181,175);
+    transition: 0.4s;
+}
+
+.one-ishow:hover{
+    transform: scale(0.99);
+    opacity: 0.8;
+}
+
+#ishow-info{
+
+    text-align: left;
+    font-weight: 500;
+    margin-left: 10px;
+}
+
+p{
+    color: rgb(48, 44, 44);
+    text-decoration-line: underline;
+    text-decoration-color: rgb(191,181,175);
 }

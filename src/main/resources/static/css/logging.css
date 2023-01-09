@@ -72,7 +72,7 @@ input[type=email],input[type = password], select {
     padding: 15px 32px;
     text-align: center;
     font-size: 16px;
-
+    transition: 0.4s;
     border-radius: 8px;
 
 }
@@ -98,6 +98,7 @@ input[type = submit]{
     text-align: center;
     font-size: 16px;
     border-radius: 8px;
+    transition: 0.4s;
 
 }
 
