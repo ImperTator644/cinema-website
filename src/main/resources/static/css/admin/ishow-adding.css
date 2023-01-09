@@ -1,0 +1,132 @@
+body{
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    font-family: -apple-system,BlinkMacSystemFont,"Segoe UI","Roboto","Oxygen","Ubuntu","Fira Sans","Droid Sans","Helvetica Neue",sans-serif;
+    background-color: rgb(48, 44, 44);
+}
+
+.main-header{
+    text-align: center;
+    font-size: larger;
+    font-weight: bold;
+    padding: 20px 0px;
+    color: rgb(211, 232, 71);
+    text-shadow: rgb(211, 232, 71) 0px 0px 5px
+}
+
+.main-section{
+    background-color: rgb(191,181,175);
+    display: flex;
+    flex-direction: column;
+    margin: 0px auto 24px;
+    padding: 10px 16px 20px;
+    width: 40%;
+    box-shadow: rgb(191,181,175) 0px 0px 15px;
+    text-align: center;
+    border-radius: 5px;
+}
+
+#response{
+    text-align: center;
+    padding: 10px 0px;
+    color: rgb(48, 44, 44);
+}
+
+input, select {
+    width: 60%;
+    text-align: center;
+    padding: 12px 20px;
+    margin : 10px;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    box-shadow: rgb(255,255,255) 0px 0px 5px;
+}
+
+input[type = reset] {
+    width: 29.5%;
+    text-align: center;
+    padding: 12px;
+    margin-left: 0px;
+    margin-right: 0px;
+    display: inline-block;
+    border: 1px solid #ccc;
+    font-size: 14px;
+    border-radius: 4px;
+    box-sizing: border-box;
+    box-shadow: rgb(255,255,255) 0px 0px 5px;
+    color: rgb(48, 44, 44);
+}
+
+input[type = reset]:hover{
+    transform: scale(0.98);
+    opacity: 0.8;
+}
+
+.buttons {
+    border:none;
+    width: 29%;
+    text-align: center;
+    padding: 12px;
+    margin-left: 0px;
+    margin-right: 0px;
+    display: inline-block;
+    border: 1px solid #ccc;
+    padding: 12px;
+    font-size: 14px;
+    border-radius: 4px;
+    box-shadow: rgb(255,255,255) 0px 0px 5px;
+    color: rgb(48, 44, 44);
+}
+
+.buttons:hover{
+    transform: scale(0.98);
+    opacity: 0.8;
+}
+
+.buttons2 {
+    font-size: 14px;
+    width: 60%;
+    text-align: center;
+    padding: 12px 20px;
+    margin : 10px;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    box-shadow: rgb(255,255,255) 0px 0px 5px;
+}
+
+.buttons2:hover{
+    transform: scale(0.98);
+    opacity: 0.8;
+}
+
+.table{
+    text-align: center;
+    border-collapse: collapse;
+    margin: 25px 0;
+    min-width: 60%;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 4px 4px 4px 4px;
+    overflow: hidden;
+    box-shadow: rgb(255,255,255) 0px 0px 5px;
+    background-color: rgb(255, 255, 255);
+}
+
+.table thead tr{
+
+    background-color: rgb(231, 227, 227);
+    box-shadow: rgb(231, 227, 227) 0px 0px 5px;
+    color: black;
+    font-weight: bold;
+
+
+}
+
+.table tbody tr{
+    border-bottom: #ccc;
+}

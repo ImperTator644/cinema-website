@@ -17,7 +17,7 @@ body{
 
 .buttons {
     background-color: rgb(191, 181, 175);
-    box-shadow: rgb(191,181,175) 0px 0px 15px;
+    box-shadow: rgb(191,181,175) 0px 0px 7px;
     border:none;
     width: 30%;
     min-height: 15%;
@@ -38,7 +38,7 @@ body{
 
 .button2 {
     background-color: rgb(191, 181, 175);
-    box-shadow: rgb(191,181,175) 0px 0px 15px;
+    box-shadow: rgb(191,181,175) 0px 0px 7px;
     border:none;
     width: 60%;
     min-height: 15%;
@@ -60,7 +60,7 @@ body{
 
 input[type = reset]{
     background-color: rgb(191, 181, 175);
-    box-shadow: rgb(191,181,175) 0px 0px 15px;
+    box-shadow: rgb(191,181,175) 0px 0px 7px;
     border:none;
     width: 30%;
     min-height: 15%;
@@ -87,7 +87,7 @@ input[type=text], select {
     border: 1px solid #ccc;
     border-radius: 4px;
     box-sizing: border-box;
-    box-shadow: rgb(255,255,255) 0px 0px 15px;
+    box-shadow: rgb(255,255,255) 0px 0px 7px;
 }
 
 .register-form{
@@ -114,7 +114,7 @@ input[type=text], select {
 
 .table thead tr{
     background-color: rgb(211, 232, 71);
-    box-shadow: rgb(211, 232, 71) 0px 0px 5px;
+    box-shadow: rgb(211, 232, 71) 0px 0px 7px;
     color: black;
     font-weight: bold;
 }
