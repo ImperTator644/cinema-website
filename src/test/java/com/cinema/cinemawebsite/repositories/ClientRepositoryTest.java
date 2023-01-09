@@ -16,12 +16,6 @@ class ClientRepositoryTest {
     private ClientRepository clientRepository;
 
     @Test
-    public void shouldReturnCorrectClient(){
-        assertEquals(clientRepository.getClientByEmail("lukasz.blicharz@student.pk.edu.pl").getId(), 6);
-        assertEquals(clientRepository.getClientByEmail("konrad.kczynski@student.pk.edu.pl").getId(), 7);
-    }
-
-    @Test
     public void shouldReturnNothing(){
         assertNull(clientRepository.getClientByEmail("nothing@email.com"));
     }

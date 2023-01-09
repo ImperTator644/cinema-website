@@ -1,6 +1,7 @@
 package com.cinema.cinemawebsite.service;
 
 import com.cinema.cinemawebsite.entities.IShow;
+import com.cinema.cinemawebsite.entities.MovieShow;
 import com.cinema.cinemawebsite.entities.enums.SoundtrackType;
 import com.cinema.cinemawebsite.helpers.SoundtrackStringToEnumConverter;
 import com.cinema.cinemawebsite.model.dto.IShowDto;
@@ -8,6 +9,7 @@ import com.cinema.cinemawebsite.repositories.IShowRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.math3.util.Precision;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Service;
 
 import java.sql.Time;
@@ -43,5 +45,9 @@ public class IShowService {
 
     public List<IShow> getIShowsFromCinemaLocationId(Integer id){
         return iShowRepository.getiShowsFromCinemaLocationID(id);
+    }
+
+    public IShow getIShowByID(Integer idIShow){
+        return iShowRepository.getIShowByID(idIShow);
     }
 }

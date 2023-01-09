@@ -46,4 +46,8 @@ public class MovieShowService {
         return movieRepository.getMovieById(movieId);
     }
 
+    public MovieShow getMovieShowByID(Integer showID){
+        return movieShowRepository.getMovieShowByID(showID);
+    }
+
 }

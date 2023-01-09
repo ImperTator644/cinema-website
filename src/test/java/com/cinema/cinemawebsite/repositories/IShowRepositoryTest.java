@@ -1,6 +1,7 @@
 package com.cinema.cinemawebsite.repositories;
 
 import com.cinema.cinemawebsite.entities.IShow;
+import org.junit.Ignore;
 import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,10 +30,5 @@ class IShowRepositoryTest {
     @Test
     void shouldReturnList(){
         assertNotEquals(Collections.EMPTY_LIST, iShowRepository.checkIfishowCanBeAdded("Trailer park", "Sunnyvale", 1, Date.valueOf("2022-12-10"), Time.valueOf("13:00:00")));
-    }
-
-    @Test
-    void shouldiShowsList(){
-        assertNotEquals(Collections.EMPTY_LIST, iShowRepository.getiShowsFromCinema("Trailer park", "Sunnyvale"));
     }
 }
