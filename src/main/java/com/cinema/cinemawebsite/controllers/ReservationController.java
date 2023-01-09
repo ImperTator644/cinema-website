@@ -90,7 +90,7 @@ public class ReservationController {
         model.addAttribute("rowList", roomService.getRowsList(room));
         model.addAttribute("seatsInRowList", roomService.getSeatList(room));
 
-        ReservationInformationDto reservationInformationDto = new ReservationInformationDto(userEmail, movie.getTitle(), iShow.getShowDate(), iShow.getShowTime().getHours(), iShow.getShowTime().getMinutes());
+        ReservationInformationDto reservationInformationDto = new ReservationInformationDto(userEmail, movie.getTitle(), iShow.getShowDate(), iShow.getShowTime().getHours(), iShow.getShowTime().getMinutes(), iShow.getShowTime());
 
         model.addAttribute("reservationInformation", reservationInformationDto);
         model.addAttribute("ticketDto", new TicketDto());

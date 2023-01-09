@@ -1,17 +1,16 @@
 package com.cinema.cinemawebsite.model.dto;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import javax.validation.constraints.Email;
-import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
-import java.sql.Date;
 
 @Getter
 @Setter
 @NoArgsConstructor
+@AllArgsConstructor
 public class TicketDto {
 
     @NotNull(message = "row is null")

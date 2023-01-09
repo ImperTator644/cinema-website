@@ -1,6 +1,7 @@
 package com.cinema.cinemawebsite.service;
 
 import com.cinema.cinemawebsite.entities.IShow;
+import com.cinema.cinemawebsite.entities.Ticket;
 import com.cinema.cinemawebsite.model.dto.ReservationInformationDto;
 import com.cinema.cinemawebsite.model.dto.TicketDto;
 import com.cinema.cinemawebsite.repositories.TicketRepository;
@@ -22,16 +23,12 @@ public class ReserveService {
         return true;
     }
 
-    public boolean reservedSeats(TicketDto ticketDto, ReservationInformationDto reservationInformationDto){
+    public boolean reservedSeats(TicketDto ticketDto, ReservationInformationDto reservationInformationDto) {
         return ticketRepository.isReservedSeat(reservationInformationDto.getTitle(),
                 reservationInformationDto.getDate(),
                 reservationInformationDto.getHour(),
                 reservationInformationDto.getMinute(),
                 ticketDto.getRow(),
                 ticketDto.getSeat());
-    }
-
-    public List<Integer> reservedSeats(IShow iShow){
-        return ticketRepository.isReservedSeat(iShow.getIdShow(), iShow.getIdCinema(), iShow.getRoomNumber());
     }
 }

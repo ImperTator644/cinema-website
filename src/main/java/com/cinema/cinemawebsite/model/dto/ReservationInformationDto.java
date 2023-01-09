@@ -1,11 +1,9 @@
 package com.cinema.cinemawebsite.model.dto;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
 
 import java.sql.Date;
+import java.sql.Time;
 
 @ToString
 @AllArgsConstructor
@@ -17,4 +15,5 @@ public class ReservationInformationDto {
     private Date date;
     private Integer hour;
     private Integer minute;
+    private Time showTime;
 }
