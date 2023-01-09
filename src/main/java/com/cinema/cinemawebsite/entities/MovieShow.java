@@ -4,6 +4,7 @@ import com.cinema.cinemawebsite.entities.enums.SoundtrackType;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import lombok.ToString;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -14,6 +15,7 @@ import javax.persistence.Table;
 @Getter
 @Setter
 @NoArgsConstructor
+@ToString
 @Table(name = "movie_show")
 public class MovieShow {
     @Column(name = "id_show")

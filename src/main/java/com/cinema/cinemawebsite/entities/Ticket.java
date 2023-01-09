@@ -4,6 +4,7 @@ import com.cinema.cinemawebsite.entities.compositeKey.TicketId;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import lombok.ToString;
 
 import javax.persistence.*;
 
@@ -11,6 +12,7 @@ import javax.persistence.*;
 @Getter
 @Setter
 @NoArgsConstructor
+@ToString
 @Table(name = "ticket")
 @IdClass(TicketId.class)
 public class Ticket {

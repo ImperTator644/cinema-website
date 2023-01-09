@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Rezerwacja biletu</title>
+</head>
+<body>
+    <h3>Wybrany film</h3>
+    <div>
+        <p>Tytul: <span th:text="*{movie.getTitle()}">tytul</span></p>
+        <p>Opis: <span th:text="*{movie.getMovieDescription()}">opis</span></p>
+        <p>Kategoria wiekowa: od lat <span th:text="*{movie.getAgeCategory()}">kategoria wiekowa</span></p>
+        <p>Dlugosc: <span th:text="*{movie.getLength()}">dlugosc</span>min</p>
+    </div>
+</div>
+
+<div>
+    <h3>Wybierz miejsce</h3>
+
+    <span th:if="${successful != null}">
+        <div th:if="${successful}">
+            <p>Bilet zarezerwowano pomyślnie!</p>
+        </div>
+        <div th:if="${!successful}">
+            <p>Bilet jest już zarezerwowany!</p>
+        </div>
+    </span>
+    <div>
+        <form th:action="@{/movie/reserveTicket(id=${iShow.getIdiShow()})}" th:object="${ticketDto}" th:method="post">
+            <div>
+                <label>Wybierz rząd: </label>
+                <select th:field="*{row}" id="row">
+                    <span th:each="iRow: ${rowList}">
+                        <option th:value="${iRow}"><span th:text="${iRow}" /></option>
+                    </span>
+                </select>
+            </div>
+            <div>
+                <label>Wybierz miejsce: </label>
+                <select th:field="*{seat}" id="seat">
+                    <span th:each="iSeat: ${seatsInRowList}">
+                        <option th:value="${iSeat}"><span th:text="${iSeat}" /></option>
+                    </span>
+                </select>
+            </div>
+            <div>
+                <label>Czy posiadasz zniżikę?: </label>
+                <select th:field="*{discount}" id="discount">
+                    <option value="true">TAK</option>
+                    <option value="false">NIE</option>
+                </select>
+            </div>
+
+            <div>
+                <button id="register-submit" class="buttons" type="submit">
+                            <span class="register-submit-text">
+                                <span>Rezerwuj bilet</span>
+                            </span>
+                </button>
+                <input type="reset" value="Reset">
+            </div>
+
+        </form>
+    </div>
+
+</div>
+
+
+</body>
+</html>

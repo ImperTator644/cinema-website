@@ -1,6 +1,5 @@
 package com.cinema.cinemawebsite.service;
 
-import com.cinema.cinemawebsite.entities.Client;
 import com.cinema.cinemawebsite.entities.Movie;
 import com.cinema.cinemawebsite.entities.enums.MovieCategory;
 import com.cinema.cinemawebsite.helpers.CategoryStringToEnumConverter;
@@ -34,5 +33,9 @@ public class MovieService {
 
     public Iterable<Movie> getMovies(){
         return movieRepository.findAll();
+    }
+
+    public Movie getMovieByID(Integer movieID){
+        return movieRepository.getMovieById(movieID);
     }
 }

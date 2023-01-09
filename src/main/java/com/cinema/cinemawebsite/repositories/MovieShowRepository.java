@@ -17,7 +17,12 @@ public interface MovieShowRepository extends JpaRepository<MovieShow, Integer> {
     @Query(value = "SELECT m.id_movie FROM Movie m NATURAL JOIN movie_show ms where ms.id_show=?1", nativeQuery = true)
     Integer getMovieIdByShowId(Integer id);
 
+
     @Query( value = "SELECT * FROM movie_show " ,nativeQuery = true)
     List<MovieShow> getMovieShows();
+
+
+    @Query(value = "SELECT * FROM movie_show ms where ms.id_show=?1", nativeQuery = true)
+    MovieShow getMovieShowByID(Integer id);
 
 }

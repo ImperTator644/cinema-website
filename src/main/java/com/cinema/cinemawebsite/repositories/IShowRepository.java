@@ -34,4 +34,7 @@ public interface IShowRepository extends JpaRepository<IShow, Integer> {
     @Query( value = "SELECT * FROM i_show s " +
             "WHERE s.id_cinema = (SELECT c.id_cinema FROM cinema c NATURAL JOIN location l WHERE l.id_location=?1)", nativeQuery = true)
     List<IShow> getiShowsFromCinemaLocationID(Integer id);
+
+    @Query(value = "SELECT * FROM i_show i where i.id_ishow = ?1", nativeQuery = true)
+    IShow getIShowByID(Integer id);
 }
