@@ -22,8 +22,6 @@ public class MovieShowService {
     @Autowired
     private MovieShowRepository movieShowRepository;
     @Autowired
-    private IShowRepository iShowRepository;
-    @Autowired
     private MovieRepository movieRepository;
 
     @Autowired
@@ -58,7 +56,5 @@ public class MovieShowService {
 
     public MovieShow getMovieShowByID(Integer showID){
         return movieShowRepository.getMovieShowByID(showID);
-
     }
-
 }
