@@ -4,11 +4,9 @@ import com.cinema.cinemawebsite.entities.Client;
 import com.cinema.cinemawebsite.model.CustomUserDetails;
 import com.cinema.cinemawebsite.repositories.ClientRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
-import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 import org.springframework.stereotype.Service;
 
 @Service

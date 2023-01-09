@@ -23,8 +23,6 @@ public interface TicketRepository extends JpaRepository<Ticket, TicketId> {
     @Query(value = "SELECT isReserved(?1, ?2, ?3, ?4, ?5, ?6)", nativeQuery = true)
     boolean isReservedSeat(String title, Date date, Integer hour, Integer minute, Integer rowNumber, Integer seatNumber);
 
-    @Query(value = "SELECT r.id_seat FROM reserved r " +
-            "WHERE r.id_ishow=?1 AND r.id_seat IN " +
-            "(SELECT s.id_seat FROM seat s WHERE s.id_cinema=?2 AND s.room_number=?3)", nativeQuery = true)
-    List<Integer> isReservedSeat(Integer idIShow, Integer idCinema, Integer roomNumber);
+    @Query(value = "SELECT * FROM ticket t WHERE t.id_client=?1", nativeQuery = true)
+    List<Ticket> getTicketsByClientID(Integer idClient);
 }

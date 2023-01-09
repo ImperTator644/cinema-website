@@ -1,12 +1,10 @@
 package com.cinema.cinemawebsite.service;
 
-import com.cinema.cinemawebsite.entities.IShow;
 import com.cinema.cinemawebsite.entities.Movie;
 import com.cinema.cinemawebsite.entities.MovieShow;
 import com.cinema.cinemawebsite.entities.enums.SoundtrackType;
 import com.cinema.cinemawebsite.helpers.SoundtrackStringToEnumConverter;
 import com.cinema.cinemawebsite.model.dto.ShowDto;
-import com.cinema.cinemawebsite.repositories.IShowRepository;
 import com.cinema.cinemawebsite.repositories.MovieRepository;
 import com.cinema.cinemawebsite.repositories.MovieShowRepository;
 import lombok.extern.slf4j.Slf4j;
@@ -47,7 +45,7 @@ public class MovieShowService {
 
 
     public String getSoundtrackFromShow(Integer movieShowID){
-        return movieRepository.getSoundtrackById(movieShowID);
+        return movieRepository.getSoundtrackByMovieShowId(movieShowID);
     }
 
     public List<MovieShow> getMovieShows() {

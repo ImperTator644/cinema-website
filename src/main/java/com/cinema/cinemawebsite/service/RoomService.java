@@ -1,6 +1,5 @@
 package com.cinema.cinemawebsite.service;
 
-import com.cinema.cinemawebsite.entities.IShow;
 import com.cinema.cinemawebsite.entities.Room;
 import com.cinema.cinemawebsite.repositories.RoomRepository;
 import org.springframework.beans.factory.annotation.Autowired;

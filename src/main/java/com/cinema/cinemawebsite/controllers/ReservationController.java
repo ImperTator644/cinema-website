@@ -1,6 +1,9 @@
 package com.cinema.cinemawebsite.controllers;
 
-import com.cinema.cinemawebsite.entities.*;
+import com.cinema.cinemawebsite.entities.IShow;
+import com.cinema.cinemawebsite.entities.Movie;
+import com.cinema.cinemawebsite.entities.MovieShow;
+import com.cinema.cinemawebsite.entities.Room;
 import com.cinema.cinemawebsite.model.CustomUserDetails;
 import com.cinema.cinemawebsite.model.dto.ReservationInformationDto;
 import com.cinema.cinemawebsite.model.dto.TicketDto;
@@ -9,11 +12,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.validation.Valid;
-import java.util.Objects;
 
 @Controller
 @RequestMapping(path = "movie")
@@ -90,7 +95,7 @@ public class ReservationController {
         model.addAttribute("rowList", roomService.getRowsList(room));
         model.addAttribute("seatsInRowList", roomService.getSeatList(room));
 
-        ReservationInformationDto reservationInformationDto = new ReservationInformationDto(userEmail, movie.getTitle(), iShow.getShowDate(), iShow.getShowTime().getHours(), iShow.getShowTime().getMinutes());
+        ReservationInformationDto reservationInformationDto = new ReservationInformationDto(userEmail, movie.getTitle(), iShow.getShowDate(), iShow.getShowTime().getHours(), iShow.getShowTime().getMinutes(), iShow.getShowTime());
 
         model.addAttribute("reservationInformation", reservationInformationDto);
         model.addAttribute("ticketDto", new TicketDto());

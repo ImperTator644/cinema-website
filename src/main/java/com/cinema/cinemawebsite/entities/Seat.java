@@ -15,15 +15,21 @@ import javax.persistence.Table;
 @Setter
 @NoArgsConstructor
 @ToString
-@Table(name = "movie_show")
-public class MovieShow {
-    @Column(name = "id_show")
+@Table(name = "seat")
+public class Seat {
     @Id
-    private int idShow;
+    @Column(name = "id_seat")
+    private int idSeat;
 
-    @Column(name = "id_movie")
-    private int idMovie;
+    @Column(name = "room_number")
+    private int roomNumber;
 
-    @Column(name = "soundtrack")
-    private String soundtrack;
+    @Column(name = "id_cinema")
+    private int idCinema;
+
+    @Column(name = "seat_row")
+    private int seatRow;
+
+    @Column(name = "seat_number")
+    private int seatNumber;
 }
