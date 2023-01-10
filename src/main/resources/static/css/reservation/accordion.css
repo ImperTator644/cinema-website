@@ -6,14 +6,21 @@ body{
     background-color: rgb(48, 44, 44);
 }
 
-.sign-out-button{
-    text-align: right;
-
+.sign-out-div{
+    width: 10%;
+    float: right;
 }
 
-input[type = submit]{
-    border:none;
+.back-button-div{
     width: 10%;
+    text-align: right;
+    margin-left: 79%;
+    margin-right: 10px;
+}
+
+.back-button{
+    border:none;
+    width: 100%;
     color: rgb(48, 44, 44);
     background-color: rgb(191, 181, 175);
     box-shadow: rgb(191,181,175) 0px 0px 5px;
@@ -24,7 +31,20 @@ input[type = submit]{
     transition: 0.4s;
 }
 
-input[type = submit]:hover{
+input[type = submit]{
+    border:none;
+    width: 100%;
+    color: rgb(48, 44, 44);
+    background-color: rgb(191, 181, 175);
+    box-shadow: rgb(191,181,175) 0px 0px 7px;
+    padding: 10px;
+    text-align: center;
+    font-size: 16px;
+    border-radius: 8px;
+    transition: 0.4s;
+}
+
+.back-button:hover, input[type = submit]:hover{
     transform: scale(0.98);
     opacity: 0.8;
 }
@@ -70,7 +90,7 @@ input[type = submit]:hover{
     width: 57.6%;
     margin: auto;
     text-align: center;
-     display: none;
+    display: none;
     background-color: rgb(168, 160, 154);
     overflow: hidden;
     border-radius: 8px;

@@ -9,7 +9,7 @@
 <body>
 <div class="sign-out-button">
     <form th:action="@{/logout}" method="post" >
-        <input type="submit" value="Sign Out"/>
+        <input type="submit" value="Wyloguj się"/>
     </form>
 </div>
 
@@ -20,7 +20,7 @@
 </header>
 
 <div th:if="${login != null && login.equals('admin@admin')}" class="client-panel">
-    <a th:href="@{/adminPanel}"><button class="buttons">ADMIN PANEL</button></a>
+    <a th:href="@{/adminPanel}"><button class="buttons">Panel admina</button></a>
 </div>
 
 <div class="client-panel">
@@ -28,17 +28,26 @@
     <a th:href="@{/panelClient/delete}"><button class="buttons2">Usuń swoje konto</button></a>
 </div>
 
-<div>
-    <h1>ZAREZERWOWANE BILETY</h1>
-    <div th:each="reservationInfo: ${reservationsInfo}">
-        <p>Tytuł: <span th:text="*{reservationInfo.getReservationInfo().getTitle()}">tytul</span></p>
-        <p>Data: <span th:text="*{reservationInfo.getReservationInfo().getDate()}">data</span></p>
-        <p>Godzina: <span th:text="*{reservationInfo.getReservationInfo().getShowTime()}">czas</span></p>
-        <p>Kino: <span th:text="*{reservationInfo.getLocationFullName()}">kino</span></p>
-        <p>Numer sali: <span th:text="*{reservationInfo.getRoomNumber()}">sala</span></p>
-        <p>Rząd: <span th:text="*{reservationInfo.getTicketDtos().getRow()}">rzad</span></p>
-        <p>Numer siedzenia: <span th:text="*{reservationInfo.getTicketDtos().getSeat()}">numer siedzenia</span></p>
-        <p>Godzina: <span th:text="*{reservationInfo.getReservationInfo().getShowTime()}">czas</span></p>
+<div class="main-reserved-tickets">
+    <div class="reserved-tickets">
+
+        <div class="client-tickets-header">
+            Zarezerwowane Bilety
+        </div>
+        <div class="client-tickets">
+            <div th:each="reservationInfo: ${reservationsInfo}" class="one-ticket">
+                <div id="ticket-info">
+                    <p>Tytuł: <span th:text="*{reservationInfo.getReservationInfo().getTitle()}">tytul</span></p>
+                    <p>Data: <span th:text="*{reservationInfo.getReservationInfo().getDate()}">data</span></p>
+                    <p>Godzina: <span th:text="*{reservationInfo.getReservationInfo().getShowTime()}">czas</span></p>
+                    <p>Kino: <span th:text="*{reservationInfo.getLocationFullName()}">kino</span></p>
+                    <p>Numer sali: <span th:text="*{reservationInfo.getRoomNumber()}">sala</span></p>
+                    <p>Rząd: <span th:text="*{reservationInfo.getTicketDtos().getRow()}">rzad</span></p>
+                    <p>Numer siedzenia: <span th:text="*{reservationInfo.getTicketDtos().getSeat()}">numer siedzenia</span></p>
+                    <p>Godzina: <span th:text="*{reservationInfo.getReservationInfo().getShowTime()}">czas</span></p>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 </body>

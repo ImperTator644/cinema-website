@@ -9,10 +9,18 @@
 </head>
 <body>
 
-<div class="sign-out-button">
-    <form th:action="@{/logout}" method="post" >
-        <input type="submit" value="Sign Out"/>
-    </form>
+<div >
+
+    <div class="sign-out-div">
+        <form th:action="@{/logout}" method="post" >
+            <input type="submit" value="Wyloguj się"/>
+        </form>
+    </div>
+
+    <div class="back-button-div">
+        <a th:href="@{/panelClient}"><button class="back-button">Powrót do panelu</button></a>
+    </div>
+
 </div>
 
 <header class="main-header">
@@ -21,39 +29,39 @@
 
 <div id="center">
 
-        <span th:each="cinema: ${listCinemas}">
-            <button class="main-panel-button">
-                <span th:text="${cinemaService.getLocationFullNameByCinemaId(cinema.getIdCinema())}" />
-            </button>
+            <span th:each="cinema: ${listCinemas}">
+                <button class="main-panel-button">
+                    <span th:text="${cinemaService.getLocationFullNameByCinemaId(cinema.getIdCinema())}" />
+                </button>
 
-            <div class="main-panel">
-                <div class="ishow-panel">
+                <div class="main-panel">
+                    <div class="ishow-panel">
 
-                    <div id="choose-show">
-                        Wybierz seans
-                    </div>
+                        <div id="choose-show">
+                            Wybierz seans
+                        </div>
 
-                    <span th:each="iShow: ${iShowsFromCinema.getIShowsFromCinemaLocationId(cinema.idLocation)}">
-                        <a th:href="@{/movie/(id=*{iShow.getIdiShow()})}">
-                            <div class="one-ishow" th:with="movie = ${movieShowService.getMovieFromShow(iShow.getIdShow())}">
-                                <div id="ishow-info">
-                                    <div id="center">
-                                        <p><span th:text="*{movie.getTitle()}">title</span></p>
-                                        <p><span th:text="*{movieShowService.getSoundtrackFromShow(iShow.getIdShow())}">soundtrack</span></p>
+                        <span th:each="iShow: ${iShowsFromCinema.getIShowsFromCinemaLocationId(cinema.idLocation)}">
+                            <a th:href="@{/movie/(id=*{iShow.getIdiShow()})}">
+                                <div class="one-ishow" th:with="movie = ${movieShowService.getMovieFromShow(iShow.getIdShow())}">
+                                    <div id="ishow-info">
+                                        <div id="center">
+                                            <p><span th:text="*{movie.getTitle()}">title</span></p>
+                                            <p><span th:text="*{movieShowService.getSoundtrackFromShow(iShow.getIdShow())}">soundtrack</span></p>
+                                        </div>
+                                    <p>Data Seansu: <span th:text="*{iShow.getShowDate()}">show_date</span></p>
+                                    <p>Godzina Seansu: <span th:text="*{iShow.getShowTime()}">show time</span></p>
+                                    <p>Kategoria filmu: <span th:text="*{movie.getMovieCategory()}">movie_category</span></p>
+                                    <p>Kategoria wiekowa: min. <span th:text="*{movie.getAgeCategory()}">age_category</span></p>
+                                    <p>Długość filmu: <span th:text="*{movie.getLength()}">length</span>min</p>
+                                    <p>Opis filmu:<div><p><span th:text="*{movie.getMovieDescription()}">description</span></p></div> </p>
                                     </div>
-                                <p>Data Seansu: <span th:text="*{iShow.getShowDate()}">show_date</span></p>
-                                <p>Godzina Seansu: <span th:text="*{iShow.getShowTime()}">show time</span></p>
-                                <p>Kategoria filmu: <span th:text="*{movie.getMovieCategory()}">movie_category</span></p>
-                                <p>Kategoria wiekowa: min. <span th:text="*{movie.getAgeCategory()}">age_category</span></p>
-                                <p>Długość filmu: <span th:text="*{movie.getLength()}">length</span>min</p>
-                                <p>Opis filmu:<div><p><span th:text="*{movie.getMovieDescription()}">description</span></p></div> </p>
                                 </div>
-                            </div>
-                        </a>
-                    </span>
+                            </a>
+                        </span>
+                    </div>
                 </div>
-            </div>
-        </span>
+            </span>
 
 </div>
 
