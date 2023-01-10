@@ -3,8 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <title>Usuń konto</title>
+    <link rel="stylesheet" th:href="@{/css/client/delete-myself.css}">
 </head>
 <body>
-    <a th:href="@{/panelClient/delete(email=${login})}"><button class="buttons2">Potwierdzam usunięcie konta</button></a>
+    <div >
+
+        <div class="sign-out-div">
+            <form th:action="@{/logout}" method="post" >
+                <input type="submit" value="Wyloguj się"/>
+            </form>
+        </div>
+
+        <div class="back-button-div">
+            <a th:href="@{/panelClient}"><button class="back-button">Powrót do panelu</button></a>
+        </div>
+
+    </div>
+
+    <div id="center">
+        <a th:href="@{/panelClient/delete(email=${login})}"><button class="button2">Potwierdzam usunięcie konta</button></a>
+    </div>
 </body>
 </html>

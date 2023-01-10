@@ -12,7 +12,7 @@
 
     <div class="sign-out-div">
         <form th:action="@{/logout}" method="post" >
-            <input type="submit" value="Sign Out"/>
+            <input type="submit" value="Wyloguj się"/>
         </form>
     </div>
 
@@ -77,7 +77,7 @@
                 </div>
 
                 <div class="choose-exact-seat">
-                    <label>Czy posiadasz zniżikę?: </label>
+                    <label>Czy posiadasz zniżkę?: </label>
                     <select th:field="*{discount}" id="discount">
                         <option value="true">TAK</option>
                         <option value="false">NIE</option>

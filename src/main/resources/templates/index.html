@@ -11,7 +11,7 @@
     <div class="sign-out-button">
         <form th:action="@{/logout}" method="post" >
             <div class="sign-out-button">
-                <input type="submit" value="Sign Out"/>
+                <input type="submit" value="Wyloguj się"/>
             </div>
         </form>
     </div>
@@ -29,15 +29,15 @@
 
         <div class="main-section-if">
             <div  th:if="${addedEmail != null && !addedEmail.isEmpty()}">
-                <p>Dodano użytkownika<span th:text="${addedEmail}">email</span></p>
+                <p>Dodano użytkownika <span th:text="${addedEmail}">email</span></p>
             </div>
 
             <div th:if="${param.error}">
-                Invalid username and password.
+                Niepoprawny email lub hasło.
             </div>
 
             <div th:if="${param.logout}">
-                You have been logged out.
+                Zostałeś wylogowany.
             </div>
         </div>
 
@@ -57,7 +57,7 @@
                     </button>
                 </div>
             </form>
-            <a th:href="@{/register}"><button class="buttons">Register</button></a>
+            <a th:href="@{/register}"><button class="buttons">Zarejestruj się</button></a>
         </div>
 
     </section>

@@ -11,22 +11,22 @@
 <div>
     <div class="sign-out-button">
         <form th:action="@{/logout}" method="post" >
-            <input type="submit" value="Sign Out"/>
+            <input type="submit" value="Wyloguj się"/>
         </form>
     </div>
 
     <header class="main-header">
         <div class="main-header-label">
-            <h1>ADMIN PANEL</h1>
+            <h1>PANEL ADMINA</h1>
         </div>
     </header>
 
     <div id="response" th:if="${isDeleted == true}">
-        <p>Użytkownik  === <span th:text="${deletedEmail}">email</span> został pomyślnie usunięty</p>
+        <p>Użytkownik <span th:text="${deletedEmail}">email</span> został pomyślnie usunięty</p>
     </div>
 
     <div class="logging-form">
-        <a th:href="@{/adminPanel/deleteClient}"><button class ="buttonPanel">Usun konto</button></a>
+        <a th:href="@{/adminPanel/deleteClient}"><button class ="buttonPanel">Usuń konto</button></a>
         <a th:href="@{/adminPanel/addMovie}"><button class ="buttonPanel">Dodaj Film</button></a>
         <a th:href="@{/adminPanel/addShow}"><button class ="buttonPanel">Dodaj Seans</button></a>
         <a th:href="@{/adminPanel/addIShow}"><button class ="buttonPanel">Dodaj Projekcję</button></a>
