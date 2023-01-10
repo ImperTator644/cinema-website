@@ -9,10 +9,18 @@
 </head>
 <body>
 <div>
-    <div class="sign-out-button">
-        <form th:action="@{/logout}" method="post" >
-            <input type="submit" value="Wyloguj się"/>
-        </form>
+    <div >
+
+        <div class="sign-out-div">
+            <form th:action="@{/logout}" method="post" >
+                <input type="submit" value="Sign Out"/>
+            </form>
+        </div>
+
+        <div class="back-button-div">
+            <a th:href="@{/panelClient}"><button class="back-button">Powrót do panelu</button></a>
+        </div>
+
     </div>
 
     <header class="main-header">
