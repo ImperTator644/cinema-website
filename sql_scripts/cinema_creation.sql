@@ -1,8 +1,8 @@
--- MySQL dump 10.13  Distrib 8.0.30, for macos12 (x86_64)
+-- MySQL dump 10.13  Distrib 8.0.31, for Win64 (x86_64)
 --
 -- Host: localhost    Database: cinema
 -- ------------------------------------------------------
--- Server version	8.0.30
+-- Server version	8.0.31
 
 USE cinema;
 
@@ -34,16 +34,6 @@ CREATE TABLE `cinema` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `cinema`
---
-
-LOCK TABLES `cinema` WRITE;
-/*!40000 ALTER TABLE `cinema` DISABLE KEYS */;
-INSERT INTO `cinema` VALUES (1,1),(2,2),(3,3),(4,4),(5,5),(6,6);
-/*!40000 ALTER TABLE `cinema` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
 -- Table structure for table `client`
 --
 
@@ -56,18 +46,8 @@ CREATE TABLE `client` (
   PRIMARY KEY (`id_client`),
   KEY `client_ibfk_1_idx` (`email`),
   CONSTRAINT `client_ibkf_1` FOREIGN KEY (`email`) REFERENCES `personal_data` (`email`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `client`
---
-
-LOCK TABLES `client` WRITE;
-/*!40000 ALTER TABLE `client` DISABLE KEYS */;
-INSERT INTO `client` VALUES (7,'konrad.kczynski@student.pk.edu.pl'),(6,'lukasz.blicharz@student.pk.edu.pl');
-/*!40000 ALTER TABLE `client` ENABLE KEYS */;
-UNLOCK TABLES;
 
 --
 -- Table structure for table `employee`
@@ -93,26 +73,38 @@ CREATE TABLE `employee` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `employee`
+-- Table structure for table `hibernate_sequence`
 --
 
-LOCK TABLES `employee` WRITE;
-/*!40000 ALTER TABLE `employee` DISABLE KEYS */;
-INSERT INTO `employee` VALUES (1,2,5,'konrad.kczynski@pracownik.pl','PRACOWNIK'),(2,NULL,3,'zdzisiek1234@pracownik.pl','MANAGER');
-/*!40000 ALTER TABLE `employee` ENABLE KEYS */;
+DROP TABLE IF EXISTS `hibernate_sequence`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `hibernate_sequence` (
+  `next_val` bigint DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `hibernate_sequence`
+--
+
+LOCK TABLES `hibernate_sequence` WRITE;
+/*!40000 ALTER TABLE `hibernate_sequence` DISABLE KEYS */;
+INSERT INTO `hibernate_sequence` VALUES (1);
+/*!40000 ALTER TABLE `hibernate_sequence` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
--- Table structure for table `iShow`
+-- Table structure for table `i_show`
 --
 
-DROP TABLE IF EXISTS `iShow`;
+DROP TABLE IF EXISTS `i_show`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `iShow` (
+CREATE TABLE `i_show` (
   `id_ishow` int unsigned NOT NULL AUTO_INCREMENT,
   `id_show` int unsigned NOT NULL,
-  `room_number` int DEFAULT NULL,
+  `room_number` int NOT NULL,
   `id_cinema` int unsigned NOT NULL,
   `show_date` date NOT NULL,
   `show_time` time NOT NULL,
@@ -122,18 +114,8 @@ CREATE TABLE `iShow` (
   KEY `id_show_idx` (`id_show`),
   CONSTRAINT `ishow_ibfk_1` FOREIGN KEY (`id_show`) REFERENCES `movie_show` (`id_show`),
   CONSTRAINT `ishow_ibfk_2` FOREIGN KEY (`room_number`, `id_cinema`) REFERENCES `room` (`room_number`, `id_cinema`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `iShow`
---
-
-LOCK TABLES `iShow` WRITE;
-/*!40000 ALTER TABLE `iShow` DISABLE KEYS */;
-INSERT INTO `iShow` VALUES (1,2,1,2,'2022-12-10','12:05:03',1.50),(2,2,1,2,'2022-12-10','12:10:05',20.70),(3,2,3,2,'2022-12-10','13:01:10',11.20);
-/*!40000 ALTER TABLE `iShow` ENABLE KEYS */;
-UNLOCK TABLES;
 
 --
 -- Table structure for table `location`
@@ -153,16 +135,6 @@ CREATE TABLE `location` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `location`
---
-
-LOCK TABLES `location` WRITE;
-/*!40000 ALTER TABLE `location` DISABLE KEYS */;
-INSERT INTO `location` VALUES (1,'Cracow','Celarowska','20','31-414'),(2,'Sunnyvale','Trailer park','420','69-420'),(3,'Caribbean','Pirates','6','01-011'),(4,'Rabka Zdroj','Bigos','9','93-234'),(5,'Raciborz','Ulanych','22','10-250'),(6,'Belgia','Wroclawska','250','300-400');
-/*!40000 ALTER TABLE `location` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
 -- Table structure for table `movie`
 --
 
@@ -173,22 +145,12 @@ CREATE TABLE `movie` (
   `id_movie` int unsigned NOT NULL AUTO_INCREMENT,
   `title` varchar(30) NOT NULL,
   `movie_description` text,
-  `movie_category` enum('AKCJA','DOKUMENT','PRZYGODA','HORROR','KOMEDIA','KRYMINAŁ','DRAMAT','SCIENCE-FICTION') DEFAULT NULL,
+  `movie_category` enum('AKCJA','DOKUMENT','PRZYGODA','HORROR','KOMEDIA','KRYMINAŁ','DRAMAT','SCIENCE-FICTION','NO-CATEGORY') NOT NULL,
   `age_category` int NOT NULL,
   `length` int NOT NULL,
   PRIMARY KEY (`id_movie`)
-) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `movie`
---
-
-LOCK TABLES `movie` WRITE;
-/*!40000 ALTER TABLE `movie` DISABLE KEYS */;
-INSERT INTO `movie` VALUES (1,'DZIKA NOC','Kiedy pewna, bogata rodzina zostaje zakładnikami w Wigilię, przestępcy nie są przygotowani na niespodziewanego bojownika. Święty Mikołaj (w tej roli David Harbour, serial Stranger Things) jest na miejscu i ma zamiar pokazać, dlaczego Mikołaj nie będzie taki święty.','DRAMAT',15,112),(2,'DEMON SLAYER: MUGEN TRAIN','Po ukończeniu treningu rehabilitacyjnego, Tanjiro i jego towarzysze udają się na kolejną misję. W Nieskończonym Pociągu doszło do serii tajemniczych zniknięć ponad czterdziestu pasażerów. Tanjiro i Nezuko, wraz z Zenitsu i Inosuke, dołączą do jednego z najpotężniejszych szermierzy wśród Korpusu Zabójców Demonów - Filara Płomienia, Kyojuro Rengoku. Razem stawią czoła nieznanemu zagrożeniu.','SCIENCE-FICTION',12,120),(3,'KOBIETA NA DACHU','Mirka to sześćdziesięcioletnia położna. Jest świetna w swoim fachu, a jeszcze lepsza w ukrywaniu swoich potrzeb i uczuć. W domu też skupia się na innych - mężu i dorosłym synu. Czasem wymyka się na dach swojego bloku, żeby zapalić papierosa. To jedyna rzecz, jaką robi tylko dla siebie, aż do dnia, w którym napada na bank uzbrojona w niewielki nóż kuchenny. Czy wydarzenie to pozwoli, by Mirka spojrzała na swoje życie z innej perspektywy?','DRAMAT',15,97),(4,'MENU','Młoda para wybiera się na odległą wyspę, do ekskluzywnej restauracji. Okazuje się jednak, że nie wszystko jest takie jakim się wydaje a w menu czekają zaskakujące niespodzianki.','KOMEDIA',15,107),(5,'CHŁOPCY Z FERAJNY','Kilkunastoletni Henry i Tommy DeVito trafiają pod opiekę potężnego gangstera. Obaj szybko uczą się panujących w mafii reguł.','KRYMINAŁ',16,146),(6,'NAZNACZONY','Po upadku z drabiny chłopiec traci przytomność. Będąc w śpiączce, wchodzi do świata umarłych.','HORROR',16,103),(7,'SZKLANA PUŁAPKA','Policjant rozprawia się z niebezpiecznymi terrorystami, którzy opanowali biurowiec. Stawką jest życie wielu osób.','AKCJA',18,131),(8,'JUMANJI','Dwunastoletni Alan wraz z koleżanką rozpoczyna zabawę w tajemniczą grę Jumanji, która wciąga go do dżungli. Po latach zostaje uwolniony przez dwójkę rodzeństwa, Judy i Petera.','PRZYGODA',7,104),(9,'SÓL ZIEMI','Sebastiao Salgado przez 40 lat podróżował po świecie dokumentując ludzkość w okresie dramatycznych zmian.','DOKUMENT',13,110),(10,'AVATAR','Jake, sparaliżowany były komandos, zostaje wysłany na planetę Pandora, gdzie zaprzyjaźnia się z lokalną społecznością i postanawia jej pomóc.','SCIENCE-FICTION',12,162),(11,'THE ROOM','Życie poczciwego bankiera zostaje wywrócone do góry nogami w momencie, gdy jego narzeczona zaczyna się spotykać z ich najlepszym przyjacielem.','KOMEDIA',21,99),(12,'JOHNNY','Patryk włamuje się do domku w małym mieście. Wyrok sądu nakazuje mu prace społeczne w puckim hospicjum, gdzie poznaje niezwykłego ks. Jana Kaczkowskiego. Duchowny angażuje młodych chłopaków z zawodówki, na pozór twardych buntowników, w pomoc śmiertelnie chorym. W swojej pracy skupia się na bliskości, czułości i walce o relacje z drugim człowiekiem. Uczy empatii. A czyni to z hurtową ilością humoru, czym zyskuje ogromną popularność. Niedługo później Jan sam staje się pacjentem swojego hospicjum. Patryk zostaje postawiony w sytuacji, która zmieni całe jego życie.','DOKUMENT',15,119);
-/*!40000 ALTER TABLE `movie` ENABLE KEYS */;
-UNLOCK TABLES;
 
 --
 -- Table structure for table `movie_show`
@@ -204,18 +166,8 @@ CREATE TABLE `movie_show` (
   PRIMARY KEY (`id_show`),
   KEY `id_movie_idx` (`id_movie`),
   CONSTRAINT `movie_show_ibfk_1` FOREIGN KEY (`id_movie`) REFERENCES `movie` (`id_movie`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `movie_show`
---
-
-LOCK TABLES `movie_show` WRITE;
-/*!40000 ALTER TABLE `movie_show` DISABLE KEYS */;
-INSERT INTO `movie_show` VALUES (1,1,'NAPISY'),(2,3,'DUBBING');
-/*!40000 ALTER TABLE `movie_show` ENABLE KEYS */;
-UNLOCK TABLES;
 
 --
 -- Table structure for table `personal_data`
@@ -230,20 +182,10 @@ CREATE TABLE `personal_data` (
   `phone_number` varchar(11) DEFAULT NULL,
   `email` varchar(45) NOT NULL,
   `date_of_birth` date NOT NULL,
-  `password` varchar(30) NOT NULL,
+  `password` varchar(200) NOT NULL,
   PRIMARY KEY (`email`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `personal_data`
---
-
-LOCK TABLES `personal_data` WRITE;
-/*!40000 ALTER TABLE `personal_data` DISABLE KEYS */;
-INSERT INTO `personal_data` VALUES ('Konrad','Kaczynski','112','konrad.kczynski@pracownik.pl','2022-12-09','haski'),('Konrad','Kaczynski','112','konrad.kczynski@student.pk.edu.pl','2022-12-09','haski'),('Lukasz','Blicharz','997','lukasz.blicharz@student.pk.edu.pl','2022-12-09','kotki'),('Zygmunt','Ofiara','123456789','zdzisiek1234@pracownik.pl','2022-12-09','ofiaraja');
-/*!40000 ALTER TABLE `personal_data` ENABLE KEYS */;
-UNLOCK TABLES;
 
 --
 -- Table structure for table `reserved`
@@ -257,20 +199,10 @@ CREATE TABLE `reserved` (
   `id_ishow` int unsigned NOT NULL,
   PRIMARY KEY (`id_seat`,`id_ishow`),
   KEY `id_ishow_idx` (`id_ishow`),
-  CONSTRAINT `id_ishow` FOREIGN KEY (`id_ishow`) REFERENCES `iShow` (`id_ishow`),
+  CONSTRAINT `id_ishow` FOREIGN KEY (`id_ishow`) REFERENCES `i_show` (`id_ishow`),
   CONSTRAINT `id_seat` FOREIGN KEY (`id_seat`) REFERENCES `seat` (`id_seat`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `reserved`
---
-
-LOCK TABLES `reserved` WRITE;
-/*!40000 ALTER TABLE `reserved` DISABLE KEYS */;
-INSERT INTO `reserved` VALUES (20,3);
-/*!40000 ALTER TABLE `reserved` ENABLE KEYS */;
-UNLOCK TABLES;
 
 --
 -- Table structure for table `room`
@@ -283,21 +215,12 @@ CREATE TABLE `room` (
   `room_number` int NOT NULL,
   `id_cinema` int unsigned NOT NULL,
   `seat_count` int NOT NULL,
+  `row_count` int unsigned NOT NULL,
   PRIMARY KEY (`room_number`,`id_cinema`),
   KEY `id_cinema_idx` (`id_cinema`),
   CONSTRAINT `room_ibfk_1` FOREIGN KEY (`id_cinema`) REFERENCES `cinema` (`id_cinema`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `room`
---
-
-LOCK TABLES `room` WRITE;
-/*!40000 ALTER TABLE `room` DISABLE KEYS */;
-INSERT INTO `room` VALUES (1,2,58),(1,4,126),(2,2,58),(2,4,78),(3,2,20);
-/*!40000 ALTER TABLE `room` ENABLE KEYS */;
-UNLOCK TABLES;
 
 --
 -- Table structure for table `seat`
@@ -315,18 +238,8 @@ CREATE TABLE `seat` (
   PRIMARY KEY (`id_seat`),
   KEY `room_number_cinema_idx` (`room_number`,`id_cinema`),
   CONSTRAINT `seat_ibfk_1` FOREIGN KEY (`room_number`, `id_cinema`) REFERENCES `room` (`room_number`, `id_cinema`)
-) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=361 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `seat`
---
-
-LOCK TABLES `seat` WRITE;
-/*!40000 ALTER TABLE `seat` DISABLE KEYS */;
-INSERT INTO `seat` VALUES (5,4,3,2,1),(5,3,3,2,2),(5,2,3,2,3),(5,1,3,2,4),(4,4,3,2,5),(4,3,3,2,6),(4,2,3,2,7),(4,1,3,2,8),(3,4,3,2,9),(3,3,3,2,10),(3,2,3,2,11),(3,1,3,2,12),(2,4,3,2,13),(2,3,3,2,14),(2,2,3,2,15),(2,1,3,2,16),(1,4,3,2,17),(1,3,3,2,18),(1,2,3,2,19),(1,1,3,2,20);
-/*!40000 ALTER TABLE `seat` ENABLE KEYS */;
-UNLOCK TABLES;
 
 --
 -- Table structure for table `ticket`
@@ -346,23 +259,47 @@ CREATE TABLE `ticket` (
   KEY `id_seat_idx` (`id_seat`),
   CONSTRAINT `fk_ticket_seat1` FOREIGN KEY (`id_seat`) REFERENCES `seat` (`id_seat`),
   CONSTRAINT `ticket_ibfk_1` FOREIGN KEY (`id_client`) REFERENCES `client` (`id_client`),
-  CONSTRAINT `ticket_ibfk_2` FOREIGN KEY (`id_ishow`) REFERENCES `iShow` (`id_ishow`)
+  CONSTRAINT `ticket_ibfk_2` FOREIGN KEY (`id_ishow`) REFERENCES `i_show` (`id_ishow`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `ticket`
---
-
-LOCK TABLES `ticket` WRITE;
-/*!40000 ALTER TABLE `ticket` DISABLE KEYS */;
-INSERT INTO `ticket` VALUES (6,3,0,20);
-/*!40000 ALTER TABLE `ticket` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
 -- Dumping routines for database 'cinema'
 --
+/*!50003 DROP FUNCTION IF EXISTS `isReserved` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` FUNCTION `isReserved`(tytul VARCHAR(30),data_seansu date,godzina INT,minuta INT,rzad INT,miejsce INT) RETURNS tinyint(1)
+    DETERMINISTIC
+BEGIN
+			SET @idiShow = (SELECT id_ishow from i_show natural join movie_show natural join movie where i_show.show_date = data_seansu
+																									AND hour(i_show.show_time) = godzina
+																									AND minute(i_show.show_time) = minuta
+																									AND movie.title = tytul);
+			IF(@idiShow is not null) THEN
+				SET @seat = (SELECT id_seat from seat where seat.seat_row = rzad and seat.seat_number = miejsce 
+																				and room_number = (SELECT i_show.room_number from i_show where i_show.id_ishow = @idiShow)
+																				and id_cinema = (SELECT i_show.id_cinema from i_show where i_show.id_ishow = @idiShow));
+				IF(@seat is not null AND @seat not in (SELECT id_seat FROM reserved where reserved.id_ishow = @idiShow)) THEN
+					RETURN 0;
+				ELSE
+					RETURN 1;
+				END IF;
+			END IF;
+            RETURN 1;
+       END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
 /*!50003 DROP PROCEDURE IF EXISTS `addCinema` */;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;
@@ -406,7 +343,7 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `addClient`(IN name VARCHAR(30),
                             IN phone_number VARCHAR(11),
                             IN email varchar(45),
                             IN date_of_birth date,
-                            IN password varchar(30)
+                            IN password varchar(200)
                             )
 BEGIN
 			SET @email = (SELECT personal_data.email from personal_data where personal_data.email = email);
@@ -463,7 +400,7 @@ DELIMITER ;
 /*!50003 SET character_set_results = utf8mb4 */ ;
 /*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
-/*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
 CREATE DEFINER=`root`@`localhost` PROCEDURE `addiShow`(
 								IN title VARCHAR(30),
@@ -472,10 +409,11 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `addiShow`(
                                 IN street VARCHAR(15),
                                 IN show_date date,
                                 IN show_time time,
-                                IN price DECIMAL(4,2)
+                                IN price DECIMAL(4,2),
+                                IN soundtrack ENUM('NAPISY','DUBBING','LEKTOR_PL')
                             )
 BEGIN
-			SET @idShow = (SELECT id_show from movie_show natural join movie where movie.title = title);
+			SET @idShow = (SELECT id_show from movie_show natural join movie where movie.title = title and movie_show.soundtrack = soundtrack);
             
             IF (@idShow is not null) THEN
             
@@ -487,7 +425,7 @@ BEGIN
                     
                     IF(@room is not null) THEN
                     
-						INSERT INTO iShow(id_show, room_number, id_cinema, show_date, show_time, price) VALUES (@idShow, @room, @idCinema, show_date, show_time, price);
+						INSERT INTO i_show(id_show, room_number, id_cinema, show_date, show_time, price) VALUES (@idShow, @room, @idCinema, show_date, show_time, price);
                     
                     END IF;
                 
@@ -575,7 +513,7 @@ DELIMITER ;
 DELIMITER ;;
 CREATE DEFINER=`root`@`localhost` PROCEDURE `addMovie`(	IN title VARCHAR(30), 
 							IN movie_description TEXT,
-                            IN movie_category ENUM('AKCJA','DOKUMENT','PRZYGODA','HORROR','KOMEDIA','KRYMINAŁ','DRAMAT','SCIENCE-FICTION'),
+                            IN movie_category ENUM('AKCJA','DOKUMENT','PRZYGODA','HORROR','KOMEDIA','KRYMINAŁ','DRAMAT','SCIENCE-FICTION','NO-CATEGORY'),
                             IN age_category INT,
                             IN length INT
                             )
@@ -642,7 +580,7 @@ BEGIN
 						ELSE 
 							SET @id_room = @id_room + 1; 
                     END IF;
-                    INSERT INTO room(room_number, id_cinema, seat_count) VALUES (@id_room, @id_cinema, seat_count);
+                    INSERT INTO room(room_number, id_cinema, seat_count, row_count) VALUES (@id_room, @id_cinema, seat_count, row_count);
                     
                     SET @row_num = row_count;
                     SET @seat_num = seat_count / row_count;
@@ -686,6 +624,8 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `deleteClient`(
                             IN email varchar(45)
                             )
 BEGIN
+			set @id_client = (SELECT client.id_client from client where client.email = email);
+            DELETE FROM ticket WHERE ticket.id_client = @id_client;
 			DELETE FROM client where client.email = email;
             DELETE FROM personal_data where personal_data.email = email;
        END ;;
@@ -741,16 +681,16 @@ BEGIN
             
             IF (@idKlienta is not null) THEN
             
-				SET @idiShow = (SELECT id_ishow from iShow natural join movie_show natural join movie where 	iShow.show_date = data_seansu
-																										AND hour(iShow.show_time) = godzina
-                                                                                                        AND minute(iShow.show_time) = minuta
+				SET @idiShow = (SELECT id_ishow from i_show natural join movie_show natural join movie where 	i_show.show_date = data_seansu
+																										AND hour(i_show.show_time) = godzina
+                                                                                                        AND minute(i_show.show_time) = minuta
 																										AND movie.title = tytul);
                 
                 IF(@idiShow is not null) THEN
                 
 					SET @seat = (SELECT id_seat from seat where seat.seat_row = rzad and seat.seat_number = miejsce 
-																					and room_number = (SELECT iShow.room_number from iShow where iShow.id_ishow = @idiShow)
-                                                                                    and id_cinema = (SELECT iShow.id_cinema from iShow where iShow.id_ishow = @idiShow));
+																					and room_number = (SELECT i_show.room_number from i_show where i_show.id_ishow = @idiShow)
+                                                                                    and id_cinema = (SELECT i_show.id_cinema from i_show where i_show.id_ishow = @idiShow));
                     
                     IF(@seat is not null 
 						AND @seat not in (SELECT id_seat FROM reserved where reserved.id_ishow = @idiShow)) THEN
@@ -780,4 +720,4 @@ DELIMITER ;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-12-10 13:18:24
+-- Dump completed on 2023-01-10  0:13:42
